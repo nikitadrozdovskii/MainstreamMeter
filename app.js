@@ -3,23 +3,14 @@ const albumDiv = document.getElementById('albumDiv');
 const albumSearch = document.getElementById('albumSearch');
 const artistSearch = document.getElementById('artistSearch');
 
-
-let token;
+const api = new Api();
+let token = api.parseURLHash();
+console.log(`token from api class: ${token}`);
 
 getAlbum.addEventListener('click',displayAlbum);
 
 
-//extract token
-function parseURLHash () {
-    var search = location.hash.substring(1);
-    var urlHash = search?JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}',
-        function(key, value) { return key===""?value:decodeURIComponent(value) }):{}
-    return urlHash;
-}
 
-
-urlHash = parseURLHash();
-token = urlHash.access_token;
 
 
 async function displayAlbum(e){
