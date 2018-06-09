@@ -23,18 +23,26 @@ class Api{
                 }});
 
         const responseData = await response.json();
-        let album_id = responseData.albums.items[0].id;
+        if (responseData.albums.items[0]) {
+            let album_id = responseData.albums.items[0].id;
 
-        //make fetch request to get album's detailed object
-        const response2 = await fetch(`https://api.spotify.com/v1/albums/${album_id}?market=ES`,
-            {method: 'GET',
-                headers: {
-                    "Authorization": `Bearer ${this.token}`,
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"
-                }});
-        const responseData2 = await response2.json();
-        return responseData2;
+
+            //make fetch request to get album's detailed object
+            const response2 = await fetch(`https://api.spotify.com/v1/albums/${album_id}?market=ES`,
+                {
+                    method: 'GET',
+                    headers: {
+                        "Authorization": `Bearer ${this.token}`,
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    }
+                });
+            const responseData2 = await response2.json();
+            return responseData2;
+        }
+        else{
+            throw 'Not found';
+        }
     }
 
 
