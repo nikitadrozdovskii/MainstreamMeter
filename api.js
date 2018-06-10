@@ -26,7 +26,7 @@ class Api{
         else{
             //if there is no token in ss - parse it from # and store in ss
             console.log('there is no token in ss');
-            if (location.hash) {
+            if (location.hash.substr(1,6)==="access") {
                 this.token = this.parseURLHash();
                 window.sessionStorage.token = this.token;
             }
@@ -35,7 +35,7 @@ class Api{
 
     async getAlbumObject(artist,album){
 
-        this.getToken();
+        // this.getToken();
         //make fetch request to get album's id
         const response = await fetch(`https://api.spotify.com/v1/search?q=album%3A${album}%20artist%3A${artist}&type=album`,
             {method: 'GET',

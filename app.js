@@ -5,6 +5,11 @@ const artistSearch = document.getElementById('artistSearch');
 const message = document.getElementById('message');
 
 const api = new Api();
+
+//when page is loaded, get token
+window.onload = ()=>{
+    api.getToken();
+};
 getAlbum.addEventListener('click',displayAlbum);
 
 
