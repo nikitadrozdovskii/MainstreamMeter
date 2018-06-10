@@ -12,13 +12,12 @@ class Api{
                     return key === "" ? value : decodeURIComponent(value)
                 }) : {}
             return urlHash.access_token;
-
-
     }
 
-    async getAlbumObject(artist,album){
-        //if there is token in SessionStorage, use it for get request, otherwise, parse token from URL hash and persist
-        //it to session storage
+
+    //if there is token in SessionStorage, use it for get request, otherwise, parse token from URL hash and persist
+    //it to session storage
+    getToken(){
         if (window.sessionStorage.token){
             //if there is token in ss, use it
             console.log('there is token in ss');
@@ -32,6 +31,11 @@ class Api{
                 window.sessionStorage.token = this.token;
             }
         }
+    }
+
+    async getAlbumObject(artist,album){
+
+        this.getToken();
         //make fetch request to get album's id
         const response = await fetch(`https://api.spotify.com/v1/search?q=album%3A${album}%20artist%3A${artist}&type=album`,
             {method: 'GET',

@@ -5,8 +5,6 @@ const artistSearch = document.getElementById('artistSearch');
 const message = document.getElementById('message');
 
 const api = new Api();
-// api.parseURLHash();
-
 getAlbum.addEventListener('click',displayAlbum);
 
 
