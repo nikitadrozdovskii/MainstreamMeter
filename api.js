@@ -1,18 +1,37 @@
 class Api{
     constructor(){
-        this.token='';
+
+
     }
 
     //extract token from URL
     parseURLHash () {
-        var search = location.hash.substring(1);
-        var urlHash = search?JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g,'":"') + '"}',
-            function(key, value) { return key===""?value:decodeURIComponent(value) }):{}
-        this.token = urlHash.access_token;
+            var search = location.hash.substring(1);
+            var urlHash = search ? JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}',
+                function (key, value) {
+                    return key === "" ? value : decodeURIComponent(value)
+                }) : {}
+            return urlHash.access_token;
+
 
     }
 
     async getAlbumObject(artist,album){
+        //if there is token in SessionStorage, use it for get request, otherwise, parse token from URL hash and persist
+        //it to session storage
+        if (window.sessionStorage.token){
+            //if there is token in ss, use it
+            console.log('there is token in ss');
+            this.token = window.sessionStorage.token;
+        }
+        else{
+            //if there is no token in ss - parse it from # and store in ss
+            console.log('there is no token in ss');
+            if (location.hash) {
+                this.token = this.parseURLHash();
+                window.sessionStorage.token = this.token;
+            }
+        }
         //make fetch request to get album's id
         const response = await fetch(`https://api.spotify.com/v1/search?q=album%3A${album}%20artist%3A${artist}&type=album`,
             {method: 'GET',
