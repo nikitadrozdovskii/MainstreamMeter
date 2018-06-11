@@ -6,12 +6,12 @@ class Api{
 
     //extract token from URL
     parseURLHash () {
-            var search = location.hash.substring(1);
-            var urlHash = search ? JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}',
-                function (key, value) {
-                    return key === "" ? value : decodeURIComponent(value)
-                }) : {}
-            return urlHash.access_token;
+        var search = location.hash.substring(1);
+        var urlHash = search ? JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}',
+            function (key, value) {
+                return key === "" ? value : decodeURIComponent(value)
+            }) : {}
+        return urlHash.access_token;
     }
 
 
