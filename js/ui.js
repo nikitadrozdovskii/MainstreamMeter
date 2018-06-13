@@ -36,17 +36,35 @@ class UI {
     //TBD: implement catch block based on Fetch response status
     displayArtist(e){
         e.preventDefault();
-        // const getAlbum = document.getElementById('getAlbum');
+
         const artistDiv = document.getElementById('artistDiv');
         const artistSearch = document.getElementById('artistSearch');
         const message = document.getElementById('message');
-        api.getArtistObject(artistSearch.value).then((art)=>{
+        let status;
+        api.getArtistObject(artistSearch.value).then((artistObject)=>{
+            status = artistObject.status;
+            let art = artistObject.art;
             console.log(art);
+            // console.log(`response status in ui: ${status}`);
             artistDiv.innerHTML = `
             <img src=${art.artists.items[0].images[1].url}>
             <h2>artist: ${art.artists.items[0].name}</h2>
             <h2>popularity: ${art.artists.items[0].popularity}</h2>
             `;
+        }).catch((e)=>{
+            console.log(`error name in ui: ${e.name}`);
+            console.log(`response status in ui: ${status}`);
+            if (e.name ==='TypeError' && status===401){
+                artistDiv.innerHTML=``;
+                message.innerText='Please log in';
+            }
+            else if (e.name ==='TypeError' && (status===400 || status===200)){
+                artistDiv.innerHTML=``;
+                message.innerText='Album not found, please refine your search';
+            }
+            setTimeout(()=>{
+                message.innerText='';
+            },2000);
         });
 
     }

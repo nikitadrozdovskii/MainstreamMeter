@@ -79,12 +79,13 @@ class Api{
                     }
                 });
             const responseData = await response.json();
-            console.log(`response status: ${response.status}`);
+            // console.log(`response status: ${response.status}`);
 
 
-        if (responseData.artists.items[0]) {
-            return responseData;
-        }
+        // if (responseData.artists.items[0]) {
+            return {art:responseData,
+                    status:response.status};
+        // }
     }
 
 
