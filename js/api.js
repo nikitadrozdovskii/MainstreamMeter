@@ -68,6 +68,26 @@ class Api{
         }
     }
 
+    async getArtistObject(artist){
+            const response = await fetch(`https://api.spotify.com/v1/search?q=${artist}&type=artist`,
+                {
+                    method: 'GET',
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${this.token}`
+                    }
+                });
+            const responseData = await response.json();
+            console.log(`response status: ${response.status}`);
+
+
+        if (responseData.artists.items[0]) {
+            return responseData;
+        }
+    }
+
+
 
 
 }

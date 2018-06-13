@@ -15,8 +15,7 @@ class UI {
         <h2>name: ${alb.name}</h2>
         <h2>popularity: ${alb.popularity}</h2>`;
         }).catch((e)=>{
-            //TBD: catch error when there is no token yet and user tries to get album
-            //clear current album, display not appropriate error message, hide it after 2 sec
+            //clear current album, display appropriate error message, hide it after 2 sec
             if (e.name==='TypeError'){
                 albumDiv.innerHTML=``;
                 message.innerText='Please log in';
@@ -26,10 +25,28 @@ class UI {
                 message.innerText='Album not found, please refine your search.';
             }
             // console.log('not found!');
-            console.log(`error : ${e.name}`)
+            console.log(`error : ${e.name}`);
             setTimeout(()=>{
                 message.innerText='';
             },2000);
+        });
+
+    }
+
+    //TBD: implement catch block based on Fetch response status
+    displayArtist(e){
+        e.preventDefault();
+        // const getAlbum = document.getElementById('getAlbum');
+        const artistDiv = document.getElementById('artistDiv');
+        const artistSearch = document.getElementById('artistSearch');
+        const message = document.getElementById('message');
+        api.getArtistObject(artistSearch.value).then((art)=>{
+            console.log(art);
+            artistDiv.innerHTML = `
+            <img src=${art.artists.items[0].images[1].url}>
+            <h2>artist: ${art.artists.items[0].name}</h2>
+            <h2>popularity: ${art.artists.items[0].popularity}</h2>
+            `;
         });
 
     }
