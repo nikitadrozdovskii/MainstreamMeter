@@ -1,7 +1,5 @@
 class Api{
     constructor(){
-
-
     }
 
     //extract token from URL
@@ -33,9 +31,10 @@ class Api{
         }
     }
 
+    //use Fetch API and passed-in artist and album search parameters to form a Spotify API GET request,
+    //use it's response to get album's id to use in another Spotify API GET request to get a more detailed
+    //album object and return it. If albums's array in second response is empty, through 'not found' error
     async getAlbumObject(artist,album){
-
-        // this.getToken();
         //make fetch request to get album's id
         const response = await fetch(`https://api.spotify.com/v1/search?q=album%3A${album}%20artist%3A${artist}&type=album`,
             {method: 'GET',
@@ -46,6 +45,8 @@ class Api{
                 }});
 
         const responseData = await response.json();
+        // console.log(`response status: ${response.status}`);
+
         if (responseData.albums.items[0]) {
             let album_id = responseData.albums.items[0].id;
 
@@ -68,6 +69,8 @@ class Api{
         }
     }
 
+    //use Fetch API and passed-in artist search parameters to form a Spotify API GET request,
+    //artist object and return it in an object along with GET request response status for error display purposes
     async getArtistObject(artist){
             const response = await fetch(`https://api.spotify.com/v1/search?q=${artist}&type=artist`,
                 {
@@ -80,12 +83,8 @@ class Api{
                 });
             const responseData = await response.json();
             // console.log(`response status: ${response.status}`);
-
-
-        // if (responseData.artists.items[0]) {
             return {art:responseData,
                     status:response.status};
-        // }
     }
 
 

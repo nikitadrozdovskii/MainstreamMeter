@@ -23,8 +23,7 @@ const artistPageLink = document.querySelector("[href='#artist']");
 
 
 
-//when we click album link in navigation, wait 100ms for page to load and then parse all necessary html elements
-// for displaying album
+//when we click artist link in navigation, wait 100ms for page to load, then call UI class' displayAlbum function
 albumPageLink.onclick = ()=>{
     setTimeout(()=>{
         const getAlbum = document.getElementById('getAlbum');
@@ -32,8 +31,7 @@ albumPageLink.onclick = ()=>{
     },100);
 };
 
-//when we click artist link in navigation, wait 100ms for page to load and then parse all necessary html elements
-// for displaying artist
+//when we click artist link in navigation, wait 100ms for page to load, then call UI class' displayArtist function
 artistPageLink.onclick = ()=>{
     setTimeout(()=>{
         const getArtist = document.getElementById('getArtist');

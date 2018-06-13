@@ -1,5 +1,7 @@
 class UI {
 
+    //get necessary DOM elements, call API class' getAlbumObject function, use returned object to display album,
+    //catch errors from Promise based on error name, display error message
     displayAlbum(e){
         e.preventDefault();
         // const getAlbum = document.getElementById('getAlbum');
@@ -33,7 +35,9 @@ class UI {
 
     }
 
-    //TBD: implement catch block based on Fetch response status
+
+    //get necessary DOM elements, call API' class' getArtistObject function, use returned object to display artist,
+    //catch errors from Promise based on error name and status returned from Fetch, display error message
     displayArtist(e){
         e.preventDefault();
 
@@ -52,8 +56,8 @@ class UI {
             <h2>popularity: ${art.artists.items[0].popularity}</h2>
             `;
         }).catch((e)=>{
-            console.log(`error name in ui: ${e.name}`);
-            console.log(`response status in ui: ${status}`);
+            // console.log(`error name in ui: ${e.name}`);
+            // console.log(`response status in ui: ${status}`);
             if (e.name ==='TypeError' && status===401){
                 artistDiv.innerHTML=``;
                 message.innerText='Please log in';
