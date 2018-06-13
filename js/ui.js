@@ -7,7 +7,6 @@ class UI {
         const albumSearch = document.getElementById('albumSearch');
         const artistSearch = document.getElementById('artistSearch');
         const message = document.getElementById('message');
-        let album;
         api.getAlbumObject(artistSearch.value,albumSearch.value).then((alb)=>{
             console.log(alb);
             albumDiv.innerHTML = `
@@ -17,10 +16,17 @@ class UI {
         <h2>popularity: ${alb.popularity}</h2>`;
         }).catch((e)=>{
             //TBD: catch error when there is no token yet and user tries to get album
-            //clear current album, display not found message, hide it after 2 sec
-            console.log('not found!');
-            albumDiv.innerHTML=``;
-            message.innerText='Album not found, please refine your search.';
+            //clear current album, display not appropriate error message, hide it after 2 sec
+            if (e.name==='TypeError'){
+                albumDiv.innerHTML=``;
+                message.innerText='Please log in';
+            }
+            else{
+                albumDiv.innerHTML=``;
+                message.innerText='Album not found, please refine your search.';
+            }
+            // console.log('not found!');
+            console.log(`error : ${e.name}`)
             setTimeout(()=>{
                 message.innerText='';
             },2000);
