@@ -20,6 +20,10 @@ html,body { height: 100%;
     height: 100%;
     margin: 0px;
     padding: 0px;
+    background-image: url("/mm/img/medium.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #container #nav {
@@ -35,6 +39,7 @@ html,body { height: 100%;
 #nav, main {
     border:1px solid black;
     width:30%;
+    background-color: #FADCEE;
 }
 
 main{
