@@ -4,6 +4,7 @@ const r = new Router(
     {
         album: new Page(new Component('album.html')),
         artist: new Page(new Component('artist.html')),
+        track: new Page(new Component('track.html')),
         login: new Page(new Component('login.html')),
         default: new Page(new Component('login.html')),
     },
