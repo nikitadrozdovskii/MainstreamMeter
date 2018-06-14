@@ -13,22 +13,21 @@ class Api{
     }
 
 
-    //if there is token in SessionStorage, use it for get request, otherwise, parse token from URL hash and persist
-    //it to session storage
+    //if current URL contains URL hash, update token in Session Storage
     getToken(){
-        if (window.sessionStorage.token){
-            //if there is token in ss, use it
-            console.log('there is token in ss');
-            this.token = window.sessionStorage.token;
-        }
-        else{
-            //if there is no token in ss - parse it from # and store in ss
-            console.log('there is no token in ss');
+        // if (window.sessionStorage.token){
+        //     //if there is token in ss, use it
+        //     console.log('there is token in ss');
+        //     this.token = window.sessionStorage.token;
+        // }
+        // else{
+        //     //if there is no token in ss - parse it from # and store in ss
+        //     console.log('there is no token in ss');
             if (location.hash.substr(1,6)==="access") {
                 this.token = this.parseURLHash();
                 window.sessionStorage.token = this.token;
             }
-        }
+        // }
     }
 
     //use Fetch API and passed-in artist and album search parameters to form a Spotify API GET request,

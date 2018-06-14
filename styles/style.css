@@ -35,7 +35,8 @@ html,body { height: 100%;
 }
 
 #nav li {
-    padding-top: 3%;
+    display:inline-block;
+    padding:3%;
     /*border: 1px solid black;*/
     width:25%;
     text-align: center
@@ -59,10 +60,13 @@ html,body { height: 100%;
 a {
     text-decoration:  none;
     color: #33332B;
+    cursor:default;
 }
 
 #nav a {
     color:#303027;
+    /*border:1px solid black;*/
+    /*padding: 25% 0%;*/
 }
 
 main{
