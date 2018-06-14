@@ -72,4 +72,23 @@ class UI {
         });
 
     }
+
+    //get necessary DOM elements, call API class' getTrackObject function, use returned object to display track
+    displayTrack(e){
+        e.preventDefault();
+
+        const trackDiv = document.getElementById('trackDiv');
+        const trackSearch = document.getElementById('trackSearch');
+        const artistSearch = document.getElementById('artistSearch');
+        const message = document.getElementById('message');
+
+        api.getTrackObject(artistSearch.value,trackSearch.value).then((track)=>{
+            console.log(track);
+            trackDiv.innerHTML = `
+        <img src="${track.tracks.items[0].album.images[1].url}" alt="">
+        <h2>artist: ${track.tracks.items[0].artists[0].name}</h2>
+        <h2>track: ${track.tracks.items[0].name}</h2>
+        <h2>popularity: ${track.tracks.items[0].popularity}</h2>`;
+        });
+    }
 }

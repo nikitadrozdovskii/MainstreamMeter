@@ -89,5 +89,20 @@ class Api{
 
 
 
+    async getTrackObject(artist,track){
+        //make fetch request to get track's id
+        const response = await fetch(`https://api.spotify.com/v1/search?q=track%3A${track}%20artist%3A${artist}&type=track`,
+            {method: 'GET',
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${this.token}`
+                }});
+
+        const responseData = await response.json();
+        console.log(responseData);
+        return responseData;
+    }
+
 
 }

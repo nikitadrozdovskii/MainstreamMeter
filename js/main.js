@@ -21,6 +21,7 @@ api.getToken();
 
 const albumPageLink = document.querySelector("[href='#album']");
 const artistPageLink = document.querySelector("[href='#artist']");
+const trackPageLink = document.querySelector("[href='#track']");
 
 
 
@@ -37,5 +38,13 @@ artistPageLink.onclick = ()=>{
     setTimeout(()=>{
         const getArtist = document.getElementById('getArtist');
         getArtist.addEventListener('click',ui.displayArtist);
+    },100);
+};
+
+//when we click artist link in navigation, wait 100ms for page to load, then call UI class' displayArtist function
+trackPageLink.onclick = ()=>{
+    setTimeout(()=>{
+        const getTrack = document.getElementById('getTrack');
+        getTrack.addEventListener('click',ui.displayTrack);
     },100);
 };
