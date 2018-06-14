@@ -81,14 +81,34 @@ class UI {
         const trackSearch = document.getElementById('trackSearch');
         const artistSearch = document.getElementById('artistSearch');
         const message = document.getElementById('message');
+        let status;
+        let track;
 
-        api.getTrackObject(artistSearch.value,trackSearch.value).then((track)=>{
-            console.log(track);
+        api.getTrackObject(artistSearch.value,trackSearch.value).then((trackObject)=>{
+            track = trackObject.track;
+            status = trackObject.status;
+            //if track not found, display error message
+            if (trackObject.track.tracks.items.length===0){
+                trackDiv.innerHTML=``;
+                message.innerText='Track not found, please refine your search';
+                setTimeout(()=>{
+                    message.innerText='';
+                },2000);
+            }
+
             trackDiv.innerHTML = `
         <img src="${track.tracks.items[0].album.images[1].url}" alt="">
         <h2>artist: ${track.tracks.items[0].artists[0].name}</h2>
         <h2>track: ${track.tracks.items[0].name}</h2>
         <h2>popularity: ${track.tracks.items[0].popularity}</h2>`;
+        }).catch((e)=>{
+            if (e.name ==='TypeError' && status===401){
+                trackDiv.innerHTML=``;
+                message.innerText='Please log in';
+            }
+            setTimeout(()=>{
+                message.innerText='';
+            },2000);
         });
     }
 }

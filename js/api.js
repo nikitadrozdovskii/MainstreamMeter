@@ -100,8 +100,9 @@ class Api{
                 }});
 
         const responseData = await response.json();
-        console.log(responseData);
-        return responseData;
+        // console.log(response.status);
+        return {track: responseData,
+                status:response.status};
     }
 
 
