@@ -1,0 +1,40 @@
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,body { height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border:1px solid black;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#container #nav {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#nav li {
+
+}
+
+#nav, main {
+    border:1px solid black;
+    width:30%;
+}
+
+main{
+    height:70%;
+}
