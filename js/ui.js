@@ -16,6 +16,9 @@ class UI {
             <h2>${alb.artists[0].name}</h2>
             <h2>${alb.name}</h2>
             <h2>Score: ${alb.popularity}</h2>`;
+            //clear inputs
+            artistSearch.value='';
+            albumSearch.value='';
         }).catch((e)=>{
             //clear current album, display appropriate error message, hide it after 2 sec
             if (e.name==='TypeError'){
@@ -55,6 +58,8 @@ class UI {
             <h2>${art.artists.items[0].name}</h2>
             <h2>Score: ${art.artists.items[0].popularity}</h2>
             `;
+            //clear input
+            artistSearch.value='';
         }).catch((e)=>{
             // console.log(`error name in ui: ${e.name}`);
             // console.log(`response status in ui: ${status}`);
@@ -101,6 +106,9 @@ class UI {
         <h2>${track.tracks.items[0].artists[0].name}</h2>
         <h2>${track.tracks.items[0].name}</h2>
         <h2>Score: ${track.tracks.items[0].popularity}</h2>`;
+        //clear inputs
+        artistSearch.value = '';
+        trackSearch.value = '';
         }).catch((e)=>{
             if (e.name ==='TypeError' && status===401){
                 trackDiv.innerHTML=``;
