@@ -74,7 +74,7 @@ a {
 main{
     height:70%;
     background-color: rgba(250, 219, 238,0.8);
-    /*border: 1px solid black;*/
+    border: 1px solid black;
     font-size: 1.2em;
 }
 
@@ -125,4 +125,15 @@ input {
 
 .button:hover{
     background-color:rgba(250, 219, 238,0.6);
+}
+
+/*.info{*/
+    /*margin:auto;*/
+/*}*/
+
+#trackDiv h2, #artistDiv h2, #albumDiv h2{
+    width:100%;
+    /*border: 1px solid white;*/
+    text-align: center;
+    color: #303027;
 }

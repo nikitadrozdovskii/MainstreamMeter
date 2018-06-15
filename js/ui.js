@@ -12,10 +12,10 @@ class UI {
         api.getAlbumObject(artistSearch.value,albumSearch.value).then((alb)=>{
             console.log(alb);
             albumDiv.innerHTML = `
-        <img src="${alb.images[1].url}" alt="">
-        <h2>artist: ${alb.artists[0].name}</h2>
-        <h2>name: ${alb.name}</h2>
-        <h2>popularity: ${alb.popularity}</h2>`;
+            <img src="${alb.images[1].url}" alt="">
+            <h2>${alb.artists[0].name}</h2>
+            <h2>${alb.name}</h2>
+            <h2>Score: ${alb.popularity}</h2>`;
         }).catch((e)=>{
             //clear current album, display appropriate error message, hide it after 2 sec
             if (e.name==='TypeError'){
@@ -52,8 +52,8 @@ class UI {
             // console.log(`response status in ui: ${status}`);
             artistDiv.innerHTML = `
             <img src=${art.artists.items[0].images[1].url}>
-            <h2>artist: ${art.artists.items[0].name}</h2>
-            <h2>popularity: ${art.artists.items[0].popularity}</h2>
+            <h2>${art.artists.items[0].name}</h2>
+            <h2>Score: ${art.artists.items[0].popularity}</h2>
             `;
         }).catch((e)=>{
             // console.log(`error name in ui: ${e.name}`);
@@ -98,9 +98,9 @@ class UI {
 
             trackDiv.innerHTML = `
         <img src="${track.tracks.items[0].album.images[1].url}" alt="">
-        <h2>artist: ${track.tracks.items[0].artists[0].name}</h2>
-        <h2>track: ${track.tracks.items[0].name}</h2>
-        <h2>popularity: ${track.tracks.items[0].popularity}</h2>`;
+        <h2>${track.tracks.items[0].artists[0].name}</h2>
+        <h2>${track.tracks.items[0].name}</h2>
+        <h2>Score: ${track.tracks.items[0].popularity}</h2>`;
         }).catch((e)=>{
             if (e.name ==='TypeError' && status===401){
                 trackDiv.innerHTML=``;
