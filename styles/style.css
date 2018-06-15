@@ -141,3 +141,61 @@ input {
 #content p{
     font-size: 1.3em;
 }
+
+@media (max-width: 1400px) {
+    #nav, main {
+        width:50%;
+    }
+}
+
+@media screen and (max-width: 790px)  and (orientation: portrait)  {
+    #nav, main {
+        width:90%;
+    }
+    main {
+        height:90%;
+    }
+    #container #nav {
+        /*display:flex;*/
+        flex-direction: column;
+        /*justify-content: space-around;*/
+        /*align-items: stretch;*/
+        height:44%;
+    }
+
+
+    #nav li {
+        display:inline-block;
+        /*padding:3%;*/
+        /*border: 1px solid black;*/
+        width:100%;
+        justify-content: space-around;
+        align-items: stretch;
+        border-bottom: 1px solid #303027;
+    }
+
+    #nav a {
+        color:#303027;
+        /*border:1px solid black;*/
+        display:block;
+        height:11%;
+        padding:2% 0%;
+        padding-top:4%;
+
+    }
+
+    #content{
+        /*border: 1px solid black;*/
+        padding: 5% 5%;
+    }
+
+    #nav li {
+        /*display:inline-block;*/
+        /*!*padding:3%;*!*/
+        /*!*border: 1px solid black;*!*/
+        /*width:25%;*/
+        text-align: left;
+        padding-left:5%;
+    }
+
+}
