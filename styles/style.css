@@ -74,7 +74,7 @@ a {
 main{
     height:70%;
     background-color: rgba(250, 219, 238,0.8);
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     font-size: 1.2em;
 }
 
@@ -131,9 +131,13 @@ input {
     /*margin:auto;*/
 /*}*/
 
-#trackDiv h2, #artistDiv h2, #albumDiv h2{
+#trackDiv h2, #artistDiv h2, #albumDiv h2, #content p{
     width:100%;
     /*border: 1px solid white;*/
     text-align: center;
     color: #303027;
+}
+
+#content p{
+    font-size: 1.3em;
 }
