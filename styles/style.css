@@ -24,7 +24,6 @@ html,body { height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    overflow: scroll;
 }
 
 #container #nav {
@@ -141,6 +140,10 @@ input {
 
 #content p{
     font-size: 1.3em;
+}
+
+#message {
+    color:#303027;
 }
 
 @media (max-width: 1400px) {

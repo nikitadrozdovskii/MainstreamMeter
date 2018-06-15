@@ -9,6 +9,16 @@ class UI {
         const albumSearch = document.getElementById('albumSearch');
         const artistSearch = document.getElementById('artistSearch');
         const message = document.getElementById('message');
+
+        //validate input
+        if (artistSearch.value==='' || albumSearch.value===''){
+            message.innerText = 'Please fill in all the fields';
+            setTimeout(()=>{
+                message.innerText='';
+            },2000);
+            throw 'invalid input';
+        }
+
         api.getAlbumObject(artistSearch.value,albumSearch.value).then((alb)=>{
             console.log(alb);
             albumDiv.innerHTML = `
@@ -43,11 +53,20 @@ class UI {
     //catch errors from Promise based on error name and status returned from Fetch, display error message
     displayArtist(e){
         e.preventDefault();
-
+        const message = document.getElementById('message');
         const artistDiv = document.getElementById('artistDiv');
         const artistSearch = document.getElementById('artistSearch');
-        const message = document.getElementById('message');
         let status;
+
+        //validate input
+        if (artistSearch.value===''){
+            message.innerText = 'Please fill in all the fields';
+            setTimeout(()=>{
+                message.innerText='';
+            },2000);
+            throw 'invalid input';
+        }
+
         api.getArtistObject(artistSearch.value).then((artistObject)=>{
             status = artistObject.status;
             let art = artistObject.art;
@@ -61,7 +80,7 @@ class UI {
             //clear input
             artistSearch.value='';
         }).catch((e)=>{
-            // console.log(`error name in ui: ${e.name}`);
+            console.log(`error name in ui: ${e.name}`);
             // console.log(`response status in ui: ${status}`);
             if (e.name ==='TypeError' && status===401){
                 artistDiv.innerHTML=``;
@@ -88,6 +107,15 @@ class UI {
         const message = document.getElementById('message');
         let status;
         let track;
+
+        //validate input
+        if (artistSearch.value==='' || trackSearch.value===''){
+            message.innerText = 'Please fill in all the fields';
+            setTimeout(()=>{
+                message.innerText='';
+            },2000);
+            throw 'invalid input';
+        }
 
         api.getTrackObject(artistSearch.value,trackSearch.value).then((trackObject)=>{
             track = trackObject.track;
@@ -119,4 +147,6 @@ class UI {
             },2000);
         });
     }
+
+
 }
