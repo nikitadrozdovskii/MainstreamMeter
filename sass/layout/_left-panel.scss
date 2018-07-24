@@ -14,5 +14,21 @@
         margin-left:65rem;
         margin-top:30rem;
         transform: translateX(-50%) translateY(-50%);
+
+        [class*="headingtext"] {
+            opacity:0;
+            animation-name: moveHeaderTitleFromLeft;
+            animation-duration: 0.8s;
+            animation-fill-mode: forwards;
+            animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        &text--1 {
+            opacity:0;
+            animation-delay: 0.5s;
+        }
+        &text--2 {
+            opacity:0;
+            animation-delay: 1s;
+        }
     }
 }
