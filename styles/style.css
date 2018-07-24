@@ -1,163 +1,41 @@
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-  font-family: Lato; }
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
 
-html, body {
-  height: 100%;
-  margin: 0px;
-  padding: 0px; }
+html {
+  font-size: 0.625em; }
 
-#container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
-  background-image: url("/mm/img/medium.gif");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; }
+body {
+  font-family: Muli , sans-serif;
+  font-weight: 400;
+  font-size: 16px; }
 
-#container #nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: stretch;
-  height: 8%; }
-
-#nav li {
-  display: inline-block;
-  /*padding:3%;*/
-  /*border: 1px solid black;*/
-  width: 25%;
-  text-align: center; }
-
-#nav li:hover {
-  background-color: rgba(250, 219, 238, 0.4); }
-
-#nav, main {
-  width: 30%;
-  background-color: #9DBFDC; }
-
-#nav {
-  background: linear-gradient(to right, #9DBFDC, #BC6ED5);
-  font-size: 1.6em;
-  border: 0.2em solid #303027; }
-
-a {
-  text-decoration: none;
-  color: #33332B;
-  cursor: default; }
-
-#nav a {
-  color: #303027;
-  /*border:1px solid black;*/
-  display: block;
-  height: 110%;
-  padding: 15%; }
-
-main {
-  height: 70%;
-  background-color: rgba(250, 219, 238, 0.8);
-  /*border: 1px solid black;*/
-  font-size: 1.2em; }
-
-input {
-  font-size: 1.2em; }
-
-ul {
-  list-style-type: none; }
-
-.show {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly; }
-
-#content {
-  /*border: 1px solid black;*/
-  padding: 5% 15%; }
-
-input[type="text"] {
-  /*background: rgba(157, 191, 220,0.6);*/
-  border: 1px solid white;
-  background: transparent; }
-
-hr {
-  border: 0;
-  height: 1px;
-  background: white;
-  margin: 3% 0%; }
-
-input {
-  width: 100%;
-  margin: 1%; }
-
-.button {
-  border: 1px solid white;
-  width: 100%;
-  background: transparent; }
-
-.button:hover {
-  background-color: rgba(250, 219, 238, 0.6); }
-
-/*.info{*/
-/*margin:auto;*/
-/*}*/
-#trackDiv h2, #artistDiv h2, #albumDiv h2, #content p {
-  width: 100%;
-  /*border: 1px solid white;*/
-  text-align: center;
-  color: #303027; }
-
-#content p {
-  font-size: 1.3em; }
-
-#message {
-  color: #303027; }
-
-@media (max-width: 1400px) {
-  #nav, main {
-    width: 50%; } }
-
-@media screen and (max-width: 790px) and (orientation: portrait) {
-  #nav, main {
-    width: 90%; }
-  main {
-    height: 90%; }
-  #container #nav {
-    /*display:flex;*/
-    flex-direction: column;
-    /*justify-content: space-around;*/
-    /*align-items: stretch;*/
-    height: 44%; }
-  #nav li {
-    display: inline-block;
-    /*padding:3%;*/
-    /*border: 1px solid black;*/
-    width: 100%;
-    justify-content: space-around;
-    align-items: stretch;
-    border-bottom: 1px solid #303027; }
-  #nav a {
-    color: #303027;
-    /*border:1px solid black;*/
-    display: block;
-    height: 11%;
-    padding: 2% 0%;
-    padding-top: 4%; }
-  #content {
-    padding: 5% 5%; }
-  #nav li {
-    /*display:inline-block;*/
-    /*!*padding:3%;*!*/
-    /*!*border: 1px solid black;*!*/
-    /*width:25%;*/
-    text-align: left;
-    padding-left: 5%; } }
+.row {
+  max-width: 114rem;
+  background-color: red;
+  border: 1px solid black;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 5rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left;
+    background: green; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 3rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 3rem)/2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2*3rem) / 3); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3*3rem) / 4); }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 2*3rem)/3) + 3rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 3*3rem) / 4) + 2*3rem); }
+  .row .col-2-of-4 {
+    width: calc(2 * ((100% - 3*3rem) / 4) + 3rem); }
