@@ -3,3 +3,20 @@ body {
     font-weight: 400;
     font-size: 16px;
 }
+
+.leftPanel {
+    &_info {
+        &--primary {
+            text-shadow: 0.4rem 0.2rem 1.3rem rgba(black,0.3);
+            color:$white;
+            font-weight:600;
+            font-size:2rem;
+        }
+
+        &--secondary {
+            text-shadow: 0.4rem 0.2rem 1.3rem rgba(black,0.3);
+            color:$white;
+            font-weight:400;
+        }
+    }
+}
