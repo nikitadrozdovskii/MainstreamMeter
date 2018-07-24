@@ -1,0 +1,23 @@
+{
+  "name": "mainstream-meter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile-sass": "node-sass sass/main.scss styles/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikitadrozdovskii/mm.git"
+  },
+  "author": "Nikita Drozdovskii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikitadrozdovskii/mm/issues"
+  },
+  "homepage": "https://github.com/nikitadrozdovskii/mm#readme",
+  "devDependencies": {
+    "node-sass": "^4.9.2"
+  }
+}
