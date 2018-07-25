@@ -5,16 +5,21 @@
     }
 
     &_input{
+        color:white;
         margin: 10px;
         font-size:1.5rem;
         padding: 0.8rem 2rem;
-        background-color: rgba(white, 0.7);
+        background-color: rgba($lavender, 0.5);
         border: none;
         font-family: inherit;
         width: 70%;
         margin: 0 auto;
         display: block;
         border-bottom: 0.4rem solid transparent;
+
+        &::placeholder {
+            color:rgba(white,0.7);
+        }
 
         &:focus{
             outline: none;

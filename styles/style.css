@@ -118,7 +118,7 @@ h1 {
     text-decoration: none;
     width: 25%;
     height: 12.5vw;
-    background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #9e579d 50%, #fc85ae 100%);
+    background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #9e579d 100%);
     background-size: 260%;
     transition: all .4s; }
     .nav_link:hover, .nav_link:active {
@@ -134,16 +134,19 @@ h1 {
   margin-bottom: 1rem; }
 
 .form_input {
+  color: white;
   margin: 10px;
   font-size: 1.5rem;
   padding: 0.8rem 2rem;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(87, 75, 144, 0.5);
   border: none;
   font-family: inherit;
   width: 70%;
   margin: 0 auto;
   display: block;
   border-bottom: 0.4rem solid transparent; }
+  .form_input::placeholder {
+    color: rgba(255, 255, 255, 0.7); }
   .form_input:focus {
     outline: none;
     border-bottom: 0.4rem solid #fc85ae; }
@@ -157,7 +160,7 @@ h1 {
   width: 70%;
   margin-left: 15%;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: white;
   background-image: linear-gradient(120deg, transparent 0%, transparent 30%, rgba(252, 133, 174, 0.1) 30%, #fc85ae 100%);
   background-size: 360%;
   transition: all .7s; }
