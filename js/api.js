@@ -16,12 +16,17 @@ class Api{
     //if current URL contains URL hash, update token in Session Storage
     //else if there is token in session storage, check if it is expired and use it if it's not
     getToken(){
+        const loginStatus = document.querySelector('.login_status');
             if (location.hash.substr(1,6)==="access") {
                 this.token = this.parseURLHash();
                 let now = Date.now();
                 const expiresAt = new Date(now + (3600 * 1000));
                 const formattedDate = expiresAt.toISOString();
-                // const expiresAtDate = ;
+                loginStatus.innerText = "You are logged in!";
+                setTimeout(() => {
+                    window.location.href = "#album";
+                    loginStatus.style.opacity = 0;  
+                },2000);
                 window.sessionStorage.token = this.token;
                 window.sessionStorage.expiresAt = formattedDate;
             } else if (window.sessionStorage.getItem('expiresAt')){
@@ -32,11 +37,20 @@ class Api{
                     //if token expired
                     if (expiresMS < Date.now){
                         console.log('token expired');
+                        loginStatus.innerText = "Please log in";
                         return 1;
                     }
                 console.log('token valid');
+                loginStatus.innerText = "You are logged in!";
+                setTimeout(() => {
+                    window.location.href = "#album";
+                    loginStatus.style.display = 'none';  
+                },2000);
                 this.token = window.sessionStorage.getItem('token'); 
+            } else {
+                loginStatus.innerText = "Please log in";
             }
+
 
         // }
     }
