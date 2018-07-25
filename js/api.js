@@ -14,19 +14,27 @@ class Api{
 
 
     //if current URL contains URL hash, update token in Session Storage
+    //else if there is token in session storage, check if it is expired and use it if it's not
     getToken(){
-        // if (window.sessionStorage.token){
-        //     //if there is token in ss, use it
-        //     console.log('there is token in ss');
-        //     this.token = window.sessionStorage.token;
-        // }
-        // else{
-        //     //if there is no token in ss - parse it from # and store in ss
-        //     console.log('there is no token in ss');
             if (location.hash.substr(1,6)==="access") {
                 this.token = this.parseURLHash();
+                let now = Date.now();
+                const expiresAt = new Date(now + (3600 * 1000));
+                const formattedDate = expiresAt.toISOString();
+                // const expiresAtDate = ;
                 window.sessionStorage.token = this.token;
-            } else {
+                window.sessionStorage.expiresAt = formattedDate;
+            } else if (window.sessionStorage.getItem('expiresAt')){
+                //check if token is expired
+                    const expiresAt = window.sessionStorage.getItem('expiresAt');
+                    const expiresAtDate = new Date(expiresAt);
+                    const expiresMS = expiresAtDate.getTime();
+                    //if token expired
+                    if (expiresMS < Date.now){
+                        console.log('token expired');
+                        return 1;
+                    }
+                console.log('token valid');
                 this.token = window.sessionStorage.getItem('token'); 
             }
 
