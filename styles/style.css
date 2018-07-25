@@ -155,7 +155,7 @@ h1 {
     display: inline-block;
     color: transparent;
     font-size: 13vw;
-    -webkit-text-stroke: 0.4rem rgba(255, 255, 255, 0.92);
+    -webkit-text-stroke: 0.4rem rgba(255, 255, 255, 0.95);
     background-image: linear-gradient(120deg, #9e579d 0%, #fc85ae 100%);
     -webkit-background-clip: text; }
 

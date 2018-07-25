@@ -32,7 +32,18 @@ class UI {
             image.src = alb.images[1].url;
             artist.innerText = `${alb.artists[0].name}`;
             albumName.innerText = `${alb.name}`;
-            score.innerText = `Score: ${alb.popularity}`;
+            // score.innerText = `Score: ${alb.popularity}`;
+
+            //dynamic score display
+            var scoreCounter = 0;
+            var scoreInterval = setInterval(() => {
+                if (scoreCounter === alb.popularity) {
+                    clearInterval(scoreInterval);
+                }
+                score.innerText = scoreCounter;
+                scoreCounter++;
+                
+            },15)
             // albumDiv.innerHTML = `
             // <img src="${alb.images[1].url}" alt="">
             // <h2>${alb.artists[0].name}</h2>
@@ -173,7 +184,17 @@ class UI {
             image.src = track.tracks.items[0].album.images[1].url;
             artist.innerText = `${track.tracks.items[0].artists[0].name}`;
             trackName.innerText = `${track.tracks.items[0].name}`;
-            score.innerText = `Score: ${track.tracks.items[0].popularity}`;
+
+            //dynamic score display
+            var scoreCounter = 0;
+            var scoreInterval = setInterval(() => {
+                if (scoreCounter === track.tracks.items[0].popularity) {
+                    clearInterval(scoreInterval);
+                }
+                score.innerText = scoreCounter;
+                scoreCounter++;
+                
+            },15)
 
 
         //     trackDiv.innerHTML = `
