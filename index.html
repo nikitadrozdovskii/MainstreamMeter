@@ -4,37 +4,41 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="styles/style.css">
     <title>Mainstream Meter</title>
-    <link href="https://fonts.googleapis.com/css?family=Muli:200,400,600,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:200,400,600,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
 
 </head>
 <body>
 
-<div class="leftPanel">
-            <div class="leftPanel_heading">
-                    <h1 class="leftPanel_headingtext--1">Mainstream</h1>
-                    <h1 class="leftPanel_headingtext--2">Meter</h1>
-                </div>
-    <div class="leftPanel_info">
-        <div class="leftPanel_info--primary">
-            This app allows you to find out how popular your favorite music is based on Spotify's popularity score.
+<div class="row">
+        <div class="col-1-of-2 leftPanel">
+                <div class="leftPanel_heading">
+                        <h1 class="leftPanel_headingtext--1">Mainstream</h1>
+                        <h1 class="leftPanel_headingtext--2">Meter</h1>
+                    </div>
+        <div class="leftPanel_info">
+            <div class="leftPanel_info--primary">
+                This app allows you to find out how popular your favorite music is based on Spotify's popularity score.
+            </div>
+            <div class="leftPanel_info--secondary">
+                    The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are. Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past. Artist and album popularity is derived mathematically from track popularity. Note that the popularity value may lag actual popularity by a few days: the value is not updated in real time.
+            </div>
         </div>
-        <div class="leftPanel_info--secondary">
-                The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are. Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past. Artist and album popularity is derived mathematically from track popularity. Note that the popularity value may lag actual popularity by a few days: the value is not updated in real time.
+    </div>
+    
+    <div class="col-1-of-2 rightPanel">
+        <div id="container">
+            <ul id="nav">
+                <li><a href='#login'>Login</a></li>
+                <li><a href='#album'>Album</a></li>
+                <li><a href="#artist">Artist</a></li>
+                <li><a href="#track" class="last">Track</a></li>
+            </ul>
+            <main></main>
         </div>
     </div>
 </div>
 
-<div class="rightPanel">
-    <div id="container">
-        <ul id="nav">
-            <li><a href='#login'>Login</a></li>
-            <li><a href='#album'>Album</a></li>
-            <li><a href="#artist">Artist</a></li>
-            <li><a href="#track" class="last">Track</a></li>
-        </ul>
-        <main></main>
-    </div>
-</div>
 
 
 <script src='js/component.js'></script>
