@@ -6,4 +6,13 @@
     border: none;
     width: 70%;
     margin-left: 15%;
+    font-weight: 600;
+    color: rgba(white, 0.9);
+    background-image: linear-gradient(120deg, transparent 0%, transparent 30%, rgba($light-pink,0.1) 30%, rgba($light-pink,1) 100%);
+    background-size: 360%;
+    transition: all .7s;
+
+    &:hover, &:active {
+        background-position: 100%;
+    }
 }
