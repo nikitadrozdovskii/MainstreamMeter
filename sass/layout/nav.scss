@@ -1,0 +1,19 @@
+.nav {
+    list-style-type: none;
+
+    &_link {
+        font-size:3rem;
+        color: $light-pink;
+        text-decoration: none;
+        width: 25%;
+        height:12.5vw;
+    }
+
+    &_icon {
+        fill: $light-pink;
+        height:100%;
+        width:80%;
+        margin: 0 auto;
+        display: block;
+    }
+}
