@@ -6,6 +6,7 @@ class UI {
         e.preventDefault();
         // const getAlbum = document.getElementById('getAlbum');
         const albumDiv = document.getElementById('albumDiv');
+        const card = document.querySelector('.card');
         const artist = document.querySelector('.card_stat--artist');
         const albumName = document.querySelector('.card_stat--album');
         const score = document.querySelector('.card_stat--score')
@@ -27,10 +28,10 @@ class UI {
         }
 
         api.getAlbumObject(artistSearch.value,albumSearch.value).then((alb)=>{
-
+            card.style.opacity = 1;
             image.src = alb.images[1].url;
-            artist.innerText = `Artist: ${alb.artists[0].name}`;
-            albumName.innerText = `Album ${alb.name}`;
+            artist.innerText = `${alb.artists[0].name}`;
+            albumName.innerText = `${alb.name}`;
             score.innerText = `Score: ${alb.popularity}`;
             // albumDiv.innerHTML = `
             // <img src="${alb.images[1].url}" alt="">
@@ -64,6 +65,7 @@ class UI {
     //catch errors from Promise based on error name and status returned from Fetch, display error message
     displayArtist(e){
         e.preventDefault();
+        const card = document.querySelector('.card');
         const message = document.querySelector('.form_error');
         const artistDiv = document.getElementById('artistDiv');
         const artistName = document.querySelector('.card_stat--name');
@@ -85,10 +87,22 @@ class UI {
         api.getArtistObject(artistSearch.value).then((artistObject)=>{
             status = artistObject.status;
             let art = artistObject.art;
+            card.style.opacity = 1;
+
             // console.log(`response status in ui: ${status}`);
-            artistName.innerText = `Name: ${art.artists.items[0].name}`;
-            artistScore.innerText = `Score: ${art.artists.items[0].popularity}`;
+            artistName.innerText = `${art.artists.items[0].name}`;
             artistImage.src = art.artists.items[0].images[1].url;
+            
+            //dynamic score display
+            var scoreCounter = 0;
+            var scoreInterval = setInterval(() => {
+                if (scoreCounter === art.artists.items[0].popularity) {
+                    clearInterval(scoreInterval);
+                }
+                artistScore.innerText = scoreCounter;
+                scoreCounter++;
+                
+            },15)
 
             // artistDiv.innerHTML = `
             // <img src=${art.artists.items[0].images[1].url}>
@@ -98,7 +112,7 @@ class UI {
             //clear input
             artistSearch.value='';
         }).catch((e)=>{
-            console.log(`error name in ui: ${e.name}`);
+            console.log(`error name in ui: ${e}`);
             // console.log(`response status in ui: ${status}`);
             if (e.name ==='TypeError' && status===401){
                 message.style.opacity=1;
@@ -124,6 +138,7 @@ class UI {
         const trackName = document.querySelector('.card_stat--track');
         const score = document.querySelector('.card_stat--score')
         const image = document.querySelector('.card_img');
+        const card = document.querySelector('.card');
 
 
         const trackSearch = document.getElementById('trackSearch');
@@ -154,10 +169,10 @@ class UI {
                 },2000);
             }
 
-
+            card.style.opacity = 1;
             image.src = track.tracks.items[0].album.images[1].url;
-            artist.innerText = `Artist: ${track.tracks.items[0].artists[0].name}`;
-            trackName.innerText = `Track: ${track.tracks.items[0].name}`;
+            artist.innerText = `${track.tracks.items[0].artists[0].name}`;
+            trackName.innerText = `${track.tracks.items[0].name}`;
             score.innerText = `Score: ${track.tracks.items[0].popularity}`;
 
 

@@ -4,16 +4,30 @@
     padding: 3rem;
     height:50rem;
     @include clearfix;
+    opacity:0;
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
     
     &_img{
+        border: 1rem solid white;
         float:left;
-        height: 38rem;
-        width: 38rem;
+        height: 20vw;
+        width: 20vw;
+
     }
 
     &_stat{
         float:left;
         padding: 1rem;
         color:white;
+        width:38rem;
+    }
+
+    &_stat--score{
+        display:inline-block;
+        color:transparent;
+        font-size:13vw;
+        -webkit-text-stroke: 0.4rem rgba(white,0.92) ;
+        background-image: linear-gradient(120deg, $dark-pink 0%, rgba($light-pink,1) 100%);
+        -webkit-background-clip: text;
     }
 }
