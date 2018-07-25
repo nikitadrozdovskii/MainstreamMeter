@@ -117,7 +117,12 @@ h1 {
     color: #fc85ae;
     text-decoration: none;
     width: 25%;
-    height: 12.5vw; }
+    height: 12.5vw;
+    background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #9e579d 50%, #fc85ae 100%);
+    background-size: 260%;
+    transition: all .4s; }
+    .nav_link:hover {
+      background-position: 100%; }
   .nav_icon {
     fill: #fc85ae;
     height: 100%;
