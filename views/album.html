@@ -1,13 +1,20 @@
 <div id="content">
 <form>
-        <div class="form_group">
-                <input class="form_input" type="text" placeholder="Album" id="albumSearch">
-        </div>
         <div class="form_group"> 
         <input class="form_input" type="text" placeholder="Artist" id="artistSearch">
         </div>
+        <div class="form_group">
+          <input class="form_input" type="text" placeholder="Album" id="albumSearch">
+        </div>
         <input type="submit" id="getAlbum" class="button" value="Search album">
 </form>
-<div id="albumDiv" class="show"></div>
+<div id="albumDiv" class="card">
+                <img class="card_img" src="" alt="">
+                <div class="card_stat">
+                       <h2 class="card_stat--artist"></h2>
+                       <h2 class="card_stat--album"></h2>
+                       <h2 class="card_stat--score"></h2>
+                </div>
+</div>
 <h2 id="message"></h2>
 </div>

@@ -26,7 +26,10 @@ class Api{
             if (location.hash.substr(1,6)==="access") {
                 this.token = this.parseURLHash();
                 window.sessionStorage.token = this.token;
+            } else {
+                this.token = window.sessionStorage.getItem('token'); 
             }
+
         // }
     }
 

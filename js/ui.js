@@ -6,6 +6,11 @@ class UI {
         e.preventDefault();
         // const getAlbum = document.getElementById('getAlbum');
         const albumDiv = document.getElementById('albumDiv');
+        const artist = document.querySelector('.card_stat--artist');
+        const albumName = document.querySelector('.card_stat--album');
+        const score = document.querySelector('.card_stat--score')
+        const image = document.querySelector('.card_img');
+
         const albumSearch = document.getElementById('albumSearch');
         const artistSearch = document.getElementById('artistSearch');
         const message = document.getElementById('message');
@@ -20,12 +25,16 @@ class UI {
         }
 
         api.getAlbumObject(artistSearch.value,albumSearch.value).then((alb)=>{
-            console.log(alb);
-            albumDiv.innerHTML = `
-            <img src="${alb.images[1].url}" alt="">
-            <h2>${alb.artists[0].name}</h2>
-            <h2>${alb.name}</h2>
-            <h2>Score: ${alb.popularity}</h2>`;
+
+            image.src = alb.images[1].url;
+            artist.innerText = `Artist: ${alb.artists[0].name}`;
+            albumName.innerText = `Album ${alb.name}`;
+            score.innerText = `Score: ${alb.popularity}`;
+            // albumDiv.innerHTML = `
+            // <img src="${alb.images[1].url}" alt="">
+            // <h2>${alb.artists[0].name}</h2>
+            // <h2>${alb.name}</h2>
+            // <h2>Score: ${alb.popularity}</h2>`;
             //clear inputs
             artistSearch.value='';
             albumSearch.value='';
@@ -108,6 +117,12 @@ class UI {
         e.preventDefault();
 
         const trackDiv = document.getElementById('trackDiv');
+        const artist = document.querySelector('.card_stat--artist');
+        const trackName = document.querySelector('.card_stat--track');
+        const score = document.querySelector('.card_stat--score')
+        const image = document.querySelector('.card_img');
+
+
         const trackSearch = document.getElementById('trackSearch');
         const artistSearch = document.getElementById('artistSearch');
         const message = document.getElementById('message');
@@ -135,11 +150,18 @@ class UI {
                 },2000);
             }
 
-            trackDiv.innerHTML = `
-        <img src="${track.tracks.items[0].album.images[1].url}" alt="">
-        <h2>${track.tracks.items[0].artists[0].name}</h2>
-        <h2>${track.tracks.items[0].name}</h2>
-        <h2>Score: ${track.tracks.items[0].popularity}</h2>`;
+
+            image.src = track.tracks.items[0].album.images[1].url;
+            artist.innerText = `Artist: ${track.tracks.items[0].artists[0].name}`;
+            trackName.innerText = `Track: ${track.tracks.items[0].name}`;
+            score.innerText = `Score: ${track.tracks.items[0].popularity}`;
+
+
+        //     trackDiv.innerHTML = `
+        // <img src="${track.tracks.items[0].album.images[1].url}" alt="">
+        // <h2>${track.tracks.items[0].artists[0].name}</h2>
+        // <h2>${track.tracks.items[0].name}</h2>
+        // <h2>Score: ${track.tracks.items[0].popularity}</h2>`;
         //clear inputs
         artistSearch.value = '';
         trackSearch.value = '';

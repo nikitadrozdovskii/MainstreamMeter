@@ -12,9 +12,6 @@ const r = new Router(
 );
 
 //extract token from URL
-if (window.location.hash.substr(1,6)==='access'){
-    console.log('I see token!');
-}
 const api = new Api();
 const ui = new UI();
 api.getToken();
