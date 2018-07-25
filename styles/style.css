@@ -131,15 +131,18 @@ h1 {
     display: block; }
 
 .card {
-  padding: 3rem; }
+  background: rgba(87, 75, 144, 0.5);
+  margin: 3rem;
+  padding: 3rem;
+  height: 50rem; }
   .card::after {
     content: "";
     display: table;
     clear: both; }
   .card_img {
     float: left;
-    height: 30rem;
-    width: 30rem; }
+    height: 38rem;
+    width: 38rem; }
   .card_stat {
     float: left;
     padding: 1rem;

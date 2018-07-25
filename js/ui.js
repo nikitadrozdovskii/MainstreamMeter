@@ -43,17 +43,17 @@ class UI {
         }).catch((e)=>{
             //clear current album, display appropriate error message, hide it after 2 sec
             if (e.name==='TypeError'){
-                albumDiv.innerHTML=``;
+                message.style.opacity=1;
                 message.innerText='Please log in';
             }
             else{
-                albumDiv.innerHTML=``;
+                message.style.opacity=1;
                 message.innerText='Album not found, please refine your search.';
             }
             // console.log('not found!');
             console.log(`error : ${e.name}`);
             setTimeout(()=>{
-                message.innerText='';
+                message.style.opacity=0;
             },2000);
         });
 
@@ -101,15 +101,15 @@ class UI {
             console.log(`error name in ui: ${e.name}`);
             // console.log(`response status in ui: ${status}`);
             if (e.name ==='TypeError' && status===401){
-                artistDiv.innerHTML=``;
+                message.style.opacity=1;
                 message.innerText='Please log in';
             }
             else if (e.name ==='TypeError' && (status===400 || status===200)){
-                artistDiv.innerHTML=``;
-                message.innerText='Album not found, please refine your search';
+                message.style.opacity=1;                
+                message.innerText='Artist not found, please refine your search';
             }
             setTimeout(()=>{
-                message.innerText='';
+                message.style.opacity=0;
             },2000);
         });
 
@@ -147,10 +147,10 @@ class UI {
             status = trackObject.status;
             //if track not found, display error message
             if (trackObject.track.tracks.items.length===0){
-                trackDiv.innerHTML=``;
+                message.style.opacity=1;
                 message.innerText='Track not found, please refine your search';
                 setTimeout(()=>{
-                    message.innerText='';
+                     message.style.opacity=0;
                 },2000);
             }
 
@@ -171,11 +171,11 @@ class UI {
         trackSearch.value = '';
         }).catch((e)=>{
             if (e.name ==='TypeError' && status===401){
-                trackDiv.innerHTML=``;
+                message.style.opacity=1;
                 message.innerText='Please log in';
             }
             setTimeout(()=>{
-                message.innerText='';
+                message.style.opacity=0;
             },2000);
         });
     }

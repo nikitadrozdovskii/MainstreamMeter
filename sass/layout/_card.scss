@@ -1,12 +1,14 @@
 .card {
-    // background: blue;
+    background: rgba($lavender, 0.5);
+    margin: 3rem;
     padding: 3rem;
+    height:50rem;
     @include clearfix;
     
     &_img{
         float:left;
-        height: 30rem;
-        width: 30rem;
+        height: 38rem;
+        width: 38rem;
     }
 
     &_stat{
