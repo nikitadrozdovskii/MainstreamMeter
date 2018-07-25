@@ -26,4 +26,12 @@
             border-bottom: 0.4rem solid $light-pink;
         }
     }
+
+    &_error{
+        width: 70%;
+        margin: 0 auto;
+        color:white;
+        font-size:1.5rem;
+        opacity:0;
+    }
 }

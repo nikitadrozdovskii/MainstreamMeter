@@ -13,13 +13,15 @@ class UI {
 
         const albumSearch = document.getElementById('albumSearch');
         const artistSearch = document.getElementById('artistSearch');
-        const message = document.getElementById('message');
+        const message = document.querySelector('.form_error');
 
         //validate input
         if (artistSearch.value==='' || albumSearch.value===''){
+            message.style.opacity = 1;
+            console.log(message.style.opacity);
             message.innerText = 'Please fill in all the fields';
             setTimeout(()=>{
-                message.innerText='';
+            message.style.opacity = 0;
             },2000);
             throw 'invalid input';
         }
@@ -62,7 +64,7 @@ class UI {
     //catch errors from Promise based on error name and status returned from Fetch, display error message
     displayArtist(e){
         e.preventDefault();
-        const message = document.getElementById('message');
+        const message = document.querySelector('.form_error');
         const artistDiv = document.getElementById('artistDiv');
         const artistName = document.querySelector('.card_stat--name');
         const artistScore = document.querySelector('.card_stat--score');
@@ -72,9 +74,10 @@ class UI {
 
         //validate input
         if (artistSearch.value===''){
+            message.style.opacity = 1;
             message.innerText = 'Please fill in all the fields';
             setTimeout(()=>{
-                message.innerText='';
+            message.style.opacity = 0;
             },2000);
             throw 'invalid input';
         }
@@ -125,15 +128,16 @@ class UI {
 
         const trackSearch = document.getElementById('trackSearch');
         const artistSearch = document.getElementById('artistSearch');
-        const message = document.getElementById('message');
+        const message = document.querySelector('.form_error');
         let status;
         let track;
 
         //validate input
         if (artistSearch.value==='' || trackSearch.value===''){
+            message.style.opacity = 1;
             message.innerText = 'Please fill in all the fields';
             setTimeout(()=>{
-                message.innerText='';
+                message.style.opacity = 0;
             },2000);
             throw 'invalid input';
         }
