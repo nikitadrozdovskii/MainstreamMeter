@@ -130,6 +130,21 @@ h1 {
     margin: 0 auto;
     display: block; }
 
+.card {
+  padding: 3rem; }
+  .card::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .card_img {
+    float: left;
+    height: 30rem;
+    width: 30rem; }
+  .card_stat {
+    float: left;
+    padding: 1rem;
+    color: white; }
+
 .form_group {
   margin-bottom: 1rem; }
 

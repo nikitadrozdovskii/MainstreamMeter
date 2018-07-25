@@ -55,6 +55,9 @@ class UI {
         e.preventDefault();
         const message = document.getElementById('message');
         const artistDiv = document.getElementById('artistDiv');
+        const artistName = document.querySelector('.card_stat--name');
+        const artistScore = document.querySelector('.card_stat--score');
+        const artistImage = document.querySelector('.card_img');
         const artistSearch = document.getElementById('artistSearch');
         let status;
 
@@ -70,13 +73,16 @@ class UI {
         api.getArtistObject(artistSearch.value).then((artistObject)=>{
             status = artistObject.status;
             let art = artistObject.art;
-            console.log(art);
             // console.log(`response status in ui: ${status}`);
-            artistDiv.innerHTML = `
-            <img src=${art.artists.items[0].images[1].url}>
-            <h2>${art.artists.items[0].name}</h2>
-            <h2>Score: ${art.artists.items[0].popularity}</h2>
-            `;
+            artistName.innerText = `Name: ${art.artists.items[0].name}`;
+            artistScore.innerText = `Score: ${art.artists.items[0].popularity}`;
+            artistImage.src = art.artists.items[0].images[1].url;
+
+            // artistDiv.innerHTML = `
+            // <img src=${art.artists.items[0].images[1].url}>
+            // <h2>${art.artists.items[0].name}</h2>
+            // <h2>Score: ${art.artists.items[0].popularity}</h2>
+            // `;
             //clear input
             artistSearch.value='';
         }).catch((e)=>{

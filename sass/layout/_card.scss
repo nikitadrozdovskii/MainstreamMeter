@@ -1,0 +1,17 @@
+.card {
+    // background: blue;
+    padding: 3rem;
+    @include clearfix;
+    
+    &_img{
+        float:left;
+        height: 30rem;
+        width: 30rem;
+    }
+
+    &_stat{
+        float:left;
+        padding: 1rem;
+        color:white;
+    }
+}
