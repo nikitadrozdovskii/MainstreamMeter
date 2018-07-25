@@ -1,0 +1,24 @@
+.form {
+    
+    &_group {
+        margin-bottom: 1rem;
+    }
+
+    &_input{
+        margin: 10px;
+        font-size:1.5rem;
+        padding: 0.8rem 2rem;
+        background-color: rgba(white, 0.7);
+        border: none;
+        font-family: inherit;
+        width: 70%;
+        margin: 0 auto;
+        display: block;
+        border-bottom: 0.4rem solid transparent;
+
+        &:focus{
+            outline: none;
+            border-bottom: 0.4rem solid $light-pink;
+        }
+    }
+}

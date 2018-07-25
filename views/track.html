@@ -1,8 +1,16 @@
 <div id="content">
-    <div><input type="text" placeholder="Artist" id="artistSearch"></div>
-    <div><input type="text" placeholder="Track" id="trackSearch"></div>
-    <div><input type="submit" id="getTrack" class="button" value="Search track"></div>
-    <hr>
+    <form>
+            <div class="form_group">
+                <input class="form_input" type="text" placeholder="Artist" id="artistSearch">
+            </div>
+            <div class="form_group">
+                <input class="form_input" type="text" placeholder="Track" id="trackSearch">
+            </div>
+            <div class="form_group">
+                <input type="submit" id="getTrack" class="button" value="Search track">
+            </div>
+    </form>
+    
     <div id="trackDiv" class="show"></div>
     <h2 id="message"></h2>
 </div>
