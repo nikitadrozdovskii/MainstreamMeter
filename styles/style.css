@@ -128,6 +128,11 @@ h1 {
     @media (max-width: 60em) {
       .leftPanel_info {
         margin-right: 5%; } }
+  .leftPanel_info--secondary {
+    overflow: hidden; }
+    @media (max-width: 20em) {
+      .leftPanel_info--secondary {
+        height: 45vh; } }
 
 .rightPanel {
   height: 100vh;
@@ -161,7 +166,6 @@ h1 {
   background: rgba(87, 75, 144, 0.5);
   margin: 3rem;
   padding: 3rem;
-  height: 50rem;
   opacity: 0;
   transition: all 1s cubic-bezier(0.19, 1, 0.22, 1); }
   .card::after {
@@ -173,18 +177,30 @@ h1 {
     float: left;
     height: 20vw;
     width: 20vw; }
+    @media (max-width: 60em) {
+      .card_img {
+        height: 35vw;
+        width: 35vw; } }
   .card_stat {
     float: left;
     padding: 1rem;
-    color: white;
-    width: 38rem; }
+    color: white; }
   .card_stat--score {
     display: inline-block;
     color: transparent;
-    font-size: 13vw;
+    font-size: 10vw;
     -webkit-text-stroke: 0.4rem rgba(255, 255, 255, 0.95);
     background-image: linear-gradient(120deg, #9e579d 0%, #fc85ae 100%);
     -webkit-background-clip: text; }
+    @media (max-width: 75em) {
+      .card_stat--score {
+        -webkit-text-stroke: 0.3rem rgba(255, 255, 255, 0.95); } }
+    @media (max-width: 60em) {
+      .card_stat--score {
+        -webkit-text-stroke: 0.2rem rgba(255, 255, 255, 0.95); } }
+    @media (max-width: 37.5em) {
+      .card_stat--score {
+        -webkit-text-stroke: 0 rgba(255, 255, 255, 0.95); } }
 
 .form_group {
   margin-bottom: 1rem; }

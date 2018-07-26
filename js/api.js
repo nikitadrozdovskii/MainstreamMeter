@@ -13,8 +13,8 @@ class Api{
     }
 
 
-    //if current URL contains URL hash, update token in Session Storage
-    //else if there is token in session storage, check if it is expired and use it if it's not
+    //if current URL contains URL hash, update token in local Storage
+    //else if there is token in local storage, check if it is expired and use it if it's not
     getToken(){
         const loginStatus = document.querySelector('.login_status');
             if (location.hash.substr(1,6)==="access") {
@@ -27,11 +27,11 @@ class Api{
                     window.location.href = "#album";
                     loginStatus.style.opacity = 0;  
                 },2000);
-                window.sessionStorage.token = this.token;
-                window.sessionStorage.expiresAt = formattedDate;
-            } else if (window.sessionStorage.getItem('expiresAt')){
+                window.localStorage.token = this.token;
+                window.localStorage.expiresAt = formattedDate;
+            } else if (window.localStorage.getItem('expiresAt')){
                 //check if token is expired
-                    const expiresAt = window.sessionStorage.getItem('expiresAt');
+                    const expiresAt = window.localStorage.getItem('expiresAt');
                     const expiresAtDate = new Date(expiresAt);
                     const expiresMS = expiresAtDate.getTime();
                     //if token expired
@@ -46,7 +46,7 @@ class Api{
                     window.location.href = "#album";
                     loginStatus.style.display = 'none';  
                 },2000);
-                this.token = window.sessionStorage.getItem('token'); 
+                this.token = window.localStorage.getItem('token'); 
             } else {
                 loginStatus.innerText = "Please log in";
             }

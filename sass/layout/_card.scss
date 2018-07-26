@@ -2,7 +2,6 @@
     background: rgba($lavender, 0.5);
     margin: 3rem;
     padding: 3rem;
-    height:50rem;
     @include clearfix;
     opacity:0;
     transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
@@ -13,21 +12,38 @@
         height: 20vw;
         width: 20vw;
 
+        @include respond (tab-port) {
+            height: 35vw;
+            width: 35vw;
+        }
+
     }
 
     &_stat{
         float:left;
         padding: 1rem;
         color:white;
-        width:38rem;
+        // width:38rem;
     }
 
     &_stat--score{
         display:inline-block;
         color:transparent;
-        font-size:13vw;
+        font-size:10vw;
         -webkit-text-stroke: 0.4rem rgba(white,0.95) ;
         background-image: linear-gradient(120deg, $dark-pink 0%, rgba($light-pink,1) 100%);
         -webkit-background-clip: text;
+
+        @include respond (tab-land) {
+            -webkit-text-stroke: 0.3rem rgba(white,0.95);
+        }
+       
+        @include respond (tab-port) {
+            -webkit-text-stroke: 0.2rem rgba(white,0.95);
+        }
+
+        @include respond (phone-land) {
+            -webkit-text-stroke: 0 rgba(white,0.95);
+        }
     }
 }

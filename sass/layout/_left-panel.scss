@@ -66,4 +66,13 @@
             margin-right: 5%;
         }
     }
+
+    &_info--secondary {
+        overflow:hidden;
+        // color: red;
+        
+        @include respond (phone-port) {
+            height: 45vh;
+        }
+    }
 }
