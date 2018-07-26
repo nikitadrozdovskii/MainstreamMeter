@@ -5,5 +5,17 @@
 }
 
 html {
-    font-size: 0.625em; //10px as a fraction of 16 px
+    font-size: 62.5%; //10px as a fraction of 16 px
+
+    // @include respond(tab-land) { //<1200?
+    //     font-size: 50%; // 8px
+    // }
+
+    @include respond(tab-port) { // <900?
+        font-size: 50%; // 8px
+    }
+
+
+
+
 }

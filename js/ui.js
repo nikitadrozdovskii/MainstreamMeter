@@ -28,8 +28,9 @@ class UI {
         }
 
         api.getAlbumObject(artistSearch.value,albumSearch.value).then((alb)=>{
-            card.style.opacity = 1;
+            console.log(alb);
             image.src = alb.images[1].url;
+            card.style.opacity = 1;
             artist.innerText = `${alb.artists[0].name}`;
             albumName.innerText = `${alb.name}`;
             // score.innerText = `Score: ${alb.popularity}`;
@@ -98,11 +99,11 @@ class UI {
         api.getArtistObject(artistSearch.value).then((artistObject)=>{
             status = artistObject.status;
             let art = artistObject.art;
+            artistImage.src = art.artists.items[0].images[1].url;
             card.style.opacity = 1;
 
             // console.log(`response status in ui: ${status}`);
             artistName.innerText = `${art.artists.items[0].name}`;
-            artistImage.src = art.artists.items[0].images[1].url;
             
             //dynamic score display
             var scoreCounter = 0;
@@ -180,10 +181,10 @@ class UI {
                 },2000);
             }
 
-            card.style.opacity = 1;
             image.src = track.tracks.items[0].album.images[1].url;
             artist.innerText = `${track.tracks.items[0].artists[0].name}`;
             trackName.innerText = `${track.tracks.items[0].name}`;
+            card.style.opacity = 1;
 
             //dynamic score display
             var scoreCounter = 0;
