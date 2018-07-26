@@ -8,6 +8,10 @@
     }
     overflow: hidden;
 
+    .inner-container::-webkit-scrollbar {
+        display: none;
+       }
+
     
 
     &_heading{

@@ -5,6 +5,11 @@
     @include clearfix;
     opacity:0;
     transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+
+    @include respond (phone-land) {
+        margin: 5vw;
+        padding: 5vw;
+    }
     
     &_img{
         border: 1rem solid white;
@@ -15,6 +20,12 @@
         @include respond (tab-port) {
             height: 35vw;
             width: 35vw;
+        }
+
+        @include respond (phone-land) {
+            width: 70vw;
+            height: 70vw;
+            margin-left: 5vw;
         }
 
     }
@@ -44,6 +55,11 @@
 
         @include respond (phone-land) {
             -webkit-text-stroke: 0 rgba(white,0.95);
+        }
+
+        @include respond (phone-land) {
+            font-size: 35vw;
+            margin-top: -5vw;
         }
     }
 }

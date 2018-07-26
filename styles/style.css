@@ -85,6 +85,8 @@ h1 {
   @media (max-width: 37.5em) {
     .leftPanel {
       width: 100%; } }
+  .leftPanel .inner-container::-webkit-scrollbar {
+    display: none; }
   .leftPanel_heading {
     text-shadow: 0.4rem 0.2rem 1.3rem rgba(0, 0, 0, 0.3);
     font-size: 3rem;
@@ -179,6 +181,10 @@ h1 {
     content: "";
     display: table;
     clear: both; }
+  @media (max-width: 37.5em) {
+    .card {
+      margin: 5vw;
+      padding: 5vw; } }
   .card_img {
     border: 1rem solid white;
     float: left;
@@ -188,6 +194,11 @@ h1 {
       .card_img {
         height: 35vw;
         width: 35vw; } }
+    @media (max-width: 37.5em) {
+      .card_img {
+        width: 70vw;
+        height: 70vw;
+        margin-left: 5vw; } }
   .card_stat {
     float: left;
     padding: 1rem;
@@ -208,6 +219,10 @@ h1 {
     @media (max-width: 37.5em) {
       .card_stat--score {
         -webkit-text-stroke: 0 rgba(255, 255, 255, 0.95); } }
+    @media (max-width: 37.5em) {
+      .card_stat--score {
+        font-size: 35vw;
+        margin-top: -5vw; } }
 
 .form_group {
   margin-bottom: 1rem; }
