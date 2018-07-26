@@ -3,7 +3,7 @@
     background-image: linear-gradient(rgba($light-pink,0.8), rgba($dark-pink, 0.8)) , url("../../img/medium.gif");
     width: 50%;
     height:100vh;
-    @include respond (phone-port) {
+    @include respond (phone-land) {
         width: 100%;
     }
 
@@ -17,6 +17,16 @@
         margin-top:25%;
         margin-right:10%;
         margin-bottom:3%;
+
+        @include respond (tab-port) {
+            font-size: 2rem;
+            margin-right:5%;      
+        }
+
+        @include respond (phone-land) {
+            font-size: 1.5rem;     
+        }
+
         
         &::after {
             content: "";
@@ -45,10 +55,15 @@
         opacity:0;
         width:50%;
         text-align:right;
-        margin-left:40%;
+        margin-right:10%;
+        margin-left: auto;
         animation-name: fadeIn;
         animation-duration: 1.5s;
         animation-delay: 1.8s;
         animation-fill-mode: forwards;
+
+        @include respond (tab-port) {
+            margin-right: 5%;
+        }
     }
 }
