@@ -6,12 +6,20 @@
     @include respond (phone-land) {
         width: 100%;
     }
+    overflow-Y:scroll;
+    @media (orientation:landscape) and (max-height: 650px) and (max-width:60em){
+        height:100vw;
+        width:100%;
+    }
 
-    &::-webkit-scrollbar {
-        display: none;
-       }
+    @media (min-width: 1920px){
+        &::-webkit-scrollbar {
+            display: none;
+           }
+    }
 
-    overflow-y: scroll;
+
+    // overflow-y: scroll;
 
     float: right;
 }
