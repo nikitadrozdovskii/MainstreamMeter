@@ -16,6 +16,7 @@
         float:left;
         height: 20vw;
         width: 20vw;
+        margin-right:1rem;
 
         @include respond (tab-port) {
             height: 35vw;
@@ -32,9 +33,13 @@
 
     &_stat{
         float:left;
-        padding: 1rem;
+        // padding: 1rem;
         color:white;
         // width:38rem;
+    }
+
+    &_stat--album, &_stat--artist, &_stat--track{ 
+        color: white;
     }
 
     &_stat--score{

@@ -197,7 +197,8 @@ h1 {
     border: 1rem solid white;
     float: left;
     height: 20vw;
-    width: 20vw; }
+    width: 20vw;
+    margin-right: 1rem; }
     @media (max-width: 60em) {
       .card_img {
         height: 35vw;
@@ -209,7 +210,8 @@ h1 {
         margin-left: 5vw; } }
   .card_stat {
     float: left;
-    padding: 1rem;
+    color: white; }
+  .card_stat--album, .card_stat--artist, .card_stat--track {
     color: white; }
   .card_stat--score {
     display: inline-block;
