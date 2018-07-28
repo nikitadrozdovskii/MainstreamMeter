@@ -1,7 +1,10 @@
 .nav {
     list-style-type: none;
+    max-width:100%;
+    @include clearfix;
 
     &_link {
+        float: left;
         font-size:3rem;
         color: $light-pink;
         text-decoration: none;
