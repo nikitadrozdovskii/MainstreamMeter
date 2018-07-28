@@ -13,6 +13,11 @@
         width:100%;
     }
 
+    //smartphone with keyboard opened up
+    @media (max-height:650px) and (max-width:31em){
+        overflow:hidden;
+    }
+
     .inner-container::-webkit-scrollbar {
         display: none;
        }

@@ -88,6 +88,9 @@ h1 {
     .leftPanel {
       height: 100vw;
       width: 100%; } }
+  @media (max-height: 650px) and (max-width: 31em) {
+    .leftPanel {
+      overflow: hidden; } }
   .leftPanel .inner-container::-webkit-scrollbar {
     display: none; }
   .leftPanel_heading {

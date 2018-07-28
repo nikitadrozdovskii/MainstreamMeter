@@ -23,6 +23,8 @@ class Api{
                 const expiresAt = new Date(now + (3600 * 1000));
                 const formattedDate = expiresAt.toISOString();
                 loginStatus.innerText = "You are logged in!";
+                window.location.href = "#album";
+
                 setTimeout(() => {
                     window.location.href = "#album";
                     loginStatus.style.opacity = 0;  
@@ -42,15 +44,16 @@ class Api{
                     }
                 console.log('token valid');
                 loginStatus.innerText = "You are logged in!";
+                 window.location.href = "#album";
+
                 setTimeout(() => {
-                    window.location.href = "#album";
+
                     loginStatus.style.display = 'none';  
                 },2000);
                 this.token = window.localStorage.getItem('token'); 
             } else {
                 loginStatus.innerText = "Please log in";
             }
-
 
         // }
     }
