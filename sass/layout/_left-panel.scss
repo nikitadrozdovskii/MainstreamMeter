@@ -25,26 +25,14 @@
     
 
     &_heading{
-        text-shadow: 0.4rem 0.2rem 1.3rem rgba(black,0.3);
-        font-size: 3rem;
-        font-weight: normal;
-        font-family: Monoton, sans-serif;
-        color: $white;
-        text-align: right;
         margin-top:25%;
         margin-right:10%;
         margin-bottom:3%;
 
         @include respond (tab-port) {
-            font-size: 2rem;
             margin-right:5%;      
         }
 
-        @include respond (phone-land) {
-            font-size: 1.5rem;     
-        }
-
-        
         &::after {
             content: "";
             display: table;
@@ -71,7 +59,6 @@
     &_info {
         opacity:0;
         width:50%;
-        text-align:right;
         margin-right:10%;
         margin-left: auto;
         animation-name: fadeIn;

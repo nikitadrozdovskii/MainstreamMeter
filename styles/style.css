@@ -31,16 +31,31 @@ body {
 h1 {
   font-weight: normal; }
 
-.leftPanel_info--primary {
+.leftPanel_heading {
   text-shadow: 0.4rem 0.2rem 1.3rem rgba(0, 0, 0, 0.3);
+  font-size: 3rem;
+  font-weight: normal;
+  font-family: Monoton, sans-serif;
   color: #fff;
-  font-weight: 600;
-  font-size: 2rem; }
+  text-align: right; }
+  @media (max-width: 60em) {
+    .leftPanel_heading {
+      font-size: 2rem; } }
+  @media (max-width: 37.5em) {
+    .leftPanel_heading {
+      font-size: 1.5rem; } }
 
-.leftPanel_info--secondary {
-  text-shadow: 0.4rem 0.2rem 1.3rem rgba(0, 0, 0, 0.3);
-  color: #fff;
-  font-weight: 400; }
+.leftPanel_info {
+  text-align: right; }
+  .leftPanel_info--primary {
+    text-shadow: 0.4rem 0.2rem 1.3rem rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-weight: 600;
+    font-size: 2rem; }
+  .leftPanel_info--secondary {
+    text-shadow: 0.4rem 0.2rem 1.3rem rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-weight: 400; }
 
 .login_status {
   font-weight: 600;
@@ -48,6 +63,32 @@ h1 {
   margin: 0 auto;
   color: white;
   font-size: 1.5rem; }
+
+.form_input {
+  font-family: inherit;
+  font-size: 1.5rem; }
+
+.form_error {
+  font-size: 1.5rem; }
+
+.card_stat--score {
+  font-size: 10vw;
+  -webkit-text-stroke: 0.4rem rgba(255, 255, 255, 0.95);
+  background-image: linear-gradient(120deg, #9e579d 0%, #fc85ae 100%);
+  -webkit-background-clip: text; }
+  @media (max-width: 75em) {
+    .card_stat--score {
+      -webkit-text-stroke: 0.3rem rgba(255, 255, 255, 0.95); } }
+  @media (max-width: 60em) {
+    .card_stat--score {
+      -webkit-text-stroke: 0.2rem rgba(255, 255, 255, 0.95); } }
+  @media (max-width: 37.5em) {
+    .card_stat--score {
+      -webkit-text-stroke: 0 rgba(255, 255, 255, 0.95);
+      font-size: 35vw; } }
+  @media (max-width: 37.5em) {
+    .card_stat--score {
+      margin-top: -5vw; } }
 
 .leftPanel {
   float: left;
@@ -67,22 +108,12 @@ h1 {
   .leftPanel .inner-container::-webkit-scrollbar {
     display: none; }
   .leftPanel_heading {
-    text-shadow: 0.4rem 0.2rem 1.3rem rgba(0, 0, 0, 0.3);
-    font-size: 3rem;
-    font-weight: normal;
-    font-family: Monoton, sans-serif;
-    color: #fff;
-    text-align: right;
     margin-top: 25%;
     margin-right: 10%;
     margin-bottom: 3%; }
     @media (max-width: 60em) {
       .leftPanel_heading {
-        font-size: 2rem;
         margin-right: 5%; } }
-    @media (max-width: 37.5em) {
-      .leftPanel_heading {
-        font-size: 1.5rem; } }
     .leftPanel_heading::after {
       content: "";
       display: table;
@@ -102,7 +133,6 @@ h1 {
   .leftPanel_info {
     opacity: 0;
     width: 50%;
-    text-align: right;
     margin-right: 10%;
     margin-left: auto;
     animation-name: fadeIn;
@@ -144,9 +174,7 @@ h1 {
     clear: both; }
   .nav_link {
     float: left;
-    font-size: 3rem;
     color: #fc85ae;
-    text-decoration: none;
     width: 25%;
     height: 12.5vw;
     background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #9e579d 100%);
@@ -197,24 +225,7 @@ h1 {
     color: white; }
   .card_stat--score {
     display: inline-block;
-    color: transparent;
-    font-size: 10vw;
-    -webkit-text-stroke: 0.4rem rgba(255, 255, 255, 0.95);
-    background-image: linear-gradient(120deg, #9e579d 0%, #fc85ae 100%);
-    -webkit-background-clip: text; }
-    @media (max-width: 75em) {
-      .card_stat--score {
-        -webkit-text-stroke: 0.3rem rgba(255, 255, 255, 0.95); } }
-    @media (max-width: 60em) {
-      .card_stat--score {
-        -webkit-text-stroke: 0.2rem rgba(255, 255, 255, 0.95); } }
-    @media (max-width: 37.5em) {
-      .card_stat--score {
-        -webkit-text-stroke: 0 rgba(255, 255, 255, 0.95); } }
-    @media (max-width: 37.5em) {
-      .card_stat--score {
-        font-size: 35vw;
-        margin-top: -5vw; } }
+    color: transparent; }
 
 .form_group {
   margin-bottom: 1rem; }
@@ -222,11 +233,9 @@ h1 {
 .form_input {
   color: white;
   margin: 10px;
-  font-size: 1.5rem;
   padding: 0.8rem 2rem;
   background-color: rgba(87, 75, 144, 0.5);
   border: none;
-  font-family: inherit;
   width: 70%;
   margin: 0 auto;
   display: block;
@@ -241,18 +250,14 @@ h1 {
   width: 70%;
   margin: 0 auto;
   color: white;
-  font-size: 1.5rem;
   opacity: 0; }
 
 .button {
   background-color: #9e579d;
   padding: 0.8rem 2rem;
-  font-size: 1.5rem;
-  font-family: inherit;
   border: none;
   width: 70%;
   margin-left: 15%;
-  font-weight: 600;
   color: white;
   background-image: linear-gradient(120deg, transparent 0%, transparent 30%, rgba(252, 133, 174, 0.1) 30%, #fc85ae 100%);
   background-size: 360%;

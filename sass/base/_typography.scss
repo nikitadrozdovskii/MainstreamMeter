@@ -7,7 +7,27 @@ body {
 h1 { font-weight:normal; }
 
 .leftPanel {
+
+    &_heading{
+        text-shadow: 0.4rem 0.2rem 1.3rem rgba(black,0.3);
+        font-size: 3rem;
+        font-weight: normal;
+        font-family: Monoton, sans-serif;
+        color: $white;
+        text-align: right;
+
+        @include respond (tab-port) {
+            font-size: 2rem;   
+        }
+
+        @include respond (phone-land) {
+            font-size: 1.5rem;     
+        }
+    }
+
     &_info {
+        text-align:right;
+
         &--primary {
             text-shadow: 0.4rem 0.2rem 1.3rem rgba(black,0.3);
             color:$white;
@@ -30,3 +50,42 @@ h1 { font-weight:normal; }
     color:white;
     font-size:1.5rem;
 }
+
+
+.form {
+    &_input{
+        font-family: inherit;
+        font-size:1.5rem;
+    }
+
+    &_error{
+        font-size:1.5rem;
+    }
+}
+
+.card {
+    &_stat--score{
+        font-size:10vw;
+        -webkit-text-stroke: 0.4rem rgba(white,0.95) ;
+        background-image: linear-gradient(120deg, $dark-pink 0%, rgba($light-pink,1) 100%);
+        -webkit-background-clip: text;
+
+        @include respond (tab-land) {
+            -webkit-text-stroke: 0.3rem rgba(white,0.95);
+        }
+       
+        @include respond (tab-port) {
+            -webkit-text-stroke: 0.2rem rgba(white,0.95);
+        }
+
+        @include respond (phone-land) {
+            -webkit-text-stroke: 0 rgba(white,0.95);
+            font-size: 35vw;
+        }
+
+        @include respond (phone-land) {
+            margin-top: -5vw;
+        }
+    }
+}
+
