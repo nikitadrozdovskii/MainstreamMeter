@@ -12,7 +12,6 @@ class UI {
         const card = document.querySelector('.card');
         const artist = document.querySelector('.card_stat--artist');
         const albumName = document.querySelector('.card_stat--album');
-        const score = document.querySelector('.card_stat--score')
         const image = document.querySelector('.card_img');
 
         const albumSearch = document.getElementById('albumSearch');
@@ -32,15 +31,7 @@ class UI {
             // score.innerText = `Score: ${alb.popularity}`;
 
             //dynamic score display
-            var scoreCounter = 0;
-            var scoreInterval = setInterval(() => {
-                if (scoreCounter === alb.popularity) {
-                    clearInterval(scoreInterval);
-                }
-                score.innerText = scoreCounter;
-                scoreCounter++;
-                
-            },15)
+            this.countScore(alb.popularity);
             //clear inputs
             artistSearch.value='';
             albumSearch.value='';
@@ -65,7 +56,6 @@ class UI {
         const card = document.querySelector('.card');
         const artistDiv = document.getElementById('artistDiv');
         const artistName = document.querySelector('.card_stat--name');
-        const artistScore = document.querySelector('.card_stat--score');
         const artistImage = document.querySelector('.card_img');
         const artistSearch = document.getElementById('artistSearch');
         let status;
@@ -85,21 +75,8 @@ class UI {
             artistName.innerText = `${art.artists.items[0].name}`;
             
             //dynamic score display
-            var scoreCounter = 0;
-            var scoreInterval = setInterval(() => {
-                if (scoreCounter === art.artists.items[0].popularity) {
-                    clearInterval(scoreInterval);
-                }
-                artistScore.innerText = scoreCounter;
-                scoreCounter++;
-                
-            },15)
+            this.countScore(art.artists.items[0].popularity);
 
-            // artistDiv.innerHTML = `
-            // <img src=${art.artists.items[0].images[1].url}>
-            // <h2>${art.artists.items[0].name}</h2>
-            // <h2>Score: ${art.artists.items[0].popularity}</h2>
-            // `;
             //clear input
             artistSearch.value='';
         }).catch((e)=>{
@@ -122,7 +99,6 @@ class UI {
         const trackDiv = document.getElementById('trackDiv');
         const artist = document.querySelector('.card_stat--artist');
         const trackName = document.querySelector('.card_stat--track');
-        const score = document.querySelector('.card_stat--score')
         const image = document.querySelector('.card_img');
         const card = document.querySelector('.card');
 
@@ -151,22 +127,8 @@ class UI {
             card.style.opacity = 1;
 
             //dynamic score display
-            var scoreCounter = 0;
-            var scoreInterval = setInterval(() => {
-                if (scoreCounter === track.tracks.items[0].popularity) {
-                    clearInterval(scoreInterval);
-                }
-                score.innerText = scoreCounter;
-                scoreCounter++;
-                
-            },15)
+            this.countScore(track.tracks.items[0].popularity);
 
-
-        //     trackDiv.innerHTML = `
-        // <img src="${track.tracks.items[0].album.images[1].url}" alt="">
-        // <h2>${track.tracks.items[0].artists[0].name}</h2>
-        // <h2>${track.tracks.items[0].name}</h2>
-        // <h2>Score: ${track.tracks.items[0].popularity}</h2>`;
         //clear inputs
         artistSearch.value = '';
         trackSearch.value = '';
@@ -186,5 +148,17 @@ class UI {
         },2000);
     }
 
+    countScore(score){
+        const scoreElement = document.querySelector('.card_stat--score');
+        console.log(scoreElement);
+        var scoreCounter = 0;
+            var scoreInterval = setInterval(() => {
+                if (scoreCounter === score) {
+                    clearInterval(scoreInterval);
+                }
+                scoreElement.innerText = scoreCounter;
+                scoreCounter++;
+            },15)
+    }
 
 }
