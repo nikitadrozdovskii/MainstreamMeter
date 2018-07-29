@@ -3,6 +3,8 @@
     max-width:100%;
     @include clearfix;
 
+
+
     &_link {
         float: left;
         // font-size:3rem;
@@ -18,11 +20,40 @@
         }
     }
 
+
     &_icon {
         fill: $light-pink;
         height:100%;
         width:80%;
         margin: 0 auto;
         display: block;
+        
+        @include respond (phone-land){
+            animation: none;
+        }
+
+        @media (orientation:landscape) and (max-height: 650px) and (max-width:60em){
+            animation: none;
+        }
+
+        animation-name: iconPop;
+        animation-duration: .8s;
+        animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    li:nth-child(1) &_icon{
+        animation-delay: 3.5s;
+    }
+
+    li:nth-child(2) &_icon{
+        animation-delay: 3.55s;
+    }
+
+    li:nth-child(3) &_icon{
+        animation-delay: 3.6s;
+    }
+
+    li:nth-child(4) &_icon{
+        animation-delay: 3.65s;
     }
 }

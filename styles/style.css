@@ -23,6 +23,10 @@ html {
   100% {
     opacity: 100; } }
 
+@keyframes iconPop {
+  50% {
+    width: 50%; } }
+
 body {
   font-family: Muli , sans-serif;
   font-weight: 400;
@@ -187,7 +191,24 @@ h1 {
     height: 100%;
     width: 80%;
     margin: 0 auto;
-    display: block; }
+    display: block;
+    animation-name: iconPop;
+    animation-duration: .8s;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1); }
+    @media (max-width: 37.5em) {
+      .nav_icon {
+        animation: none; } }
+    @media (orientation: landscape) and (max-height: 650px) and (max-width: 60em) {
+      .nav_icon {
+        animation: none; } }
+  li:nth-child(1) .nav_icon {
+    animation-delay: 3.5s; }
+  li:nth-child(2) .nav_icon {
+    animation-delay: 3.55s; }
+  li:nth-child(3) .nav_icon {
+    animation-delay: 3.6s; }
+  li:nth-child(4) .nav_icon {
+    animation-delay: 3.65s; }
 
 .card {
   background: rgba(87, 75, 144, 0.5);
