@@ -23,7 +23,6 @@ class UI {
         }
 
         api.getAlbumObject(artistSearch.value,albumSearch.value).then((alb)=>{
-            console.log(alb);
             image.src = alb.images[1].url;
             card.style.opacity = 1;
             artist.innerText = `${alb.artists[0].name}`;
@@ -150,7 +149,6 @@ class UI {
 
     countScore(score){
         const scoreElement = document.querySelector('.card_stat--score');
-        console.log(scoreElement);
         var scoreCounter = 0;
             var scoreInterval = setInterval(() => {
                 if (scoreCounter === score) {

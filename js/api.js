@@ -1,5 +1,13 @@
 class Api{
     constructor(){
+        this.getToken();
+        console.log(this.token);
+        this.headers = {method: 'GET',
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${this.token}`
+        }};
     }
 
     //extract token from URL
@@ -63,13 +71,7 @@ class Api{
     //album object and return it. If albums's array in second response is empty, through 'not found' error
     async getAlbumObject(artist,album){
         //make fetch request to get album's id
-        const response = await fetch(`https://api.spotify.com/v1/search?q=album%3A${album}%20artist%3A${artist}&type=album`,
-            {method: 'GET',
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${this.token}`
-                }});
+        const response = await fetch(`https://api.spotify.com/v1/search?q=album%3A${album}%20artist%3A${artist}&type=album`, this.headers);
 
         const responseData = await response.json();
         // console.log(`response status: ${response.status}`);
@@ -79,15 +81,7 @@ class Api{
 
 
             //make fetch request to get album's detailed object
-            const response2 = await fetch(`https://api.spotify.com/v1/albums/${album_id}?market=ES`,
-                {
-                    method: 'GET',
-                    headers: {
-                        "Authorization": `Bearer ${this.token}`,
-                        "Accept": "application/json",
-                        "Content-Type": "application/json"
-                    }
-                });
+            const response2 = await fetch(`https://api.spotify.com/v1/albums/${album_id}?market=ES`,this.headers);
             const responseData2 = await response2.json();
             return responseData2;
         }
@@ -99,15 +93,7 @@ class Api{
     //use Fetch API and passed-in artist search parameters to form a Spotify API GET request,
     //artist object and return it in an object along with GET request response status for error display purposes
     async getArtistObject(artist){
-            const response = await fetch(`https://api.spotify.com/v1/search?q=${artist}&type=artist`,
-                {
-                    method: 'GET',
-                    headers: {
-                        "Accept": "application/json",
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${this.token}`
-                    }
-                });
+            const response = await fetch(`https://api.spotify.com/v1/search?q=${artist}&type=artist`, this.headers);
             const responseData = await response.json();
             // console.log(`response status: ${response.status}`);
             return {art:responseData,
@@ -118,13 +104,7 @@ class Api{
 
     async getTrackObject(artist,track){
         //make fetch request to get track's id
-        const response = await fetch(`https://api.spotify.com/v1/search?q=track%3A${track}%20artist%3A${artist}&type=track`,
-            {method: 'GET',
-                headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${this.token}`
-                }});
+        const response = await fetch(`https://api.spotify.com/v1/search?q=track%3A${track}%20artist%3A${artist}&type=track`,this.headers);
 
         const responseData = await response.json();
         // console.log(response.status);

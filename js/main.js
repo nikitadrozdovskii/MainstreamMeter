@@ -11,10 +11,10 @@ const r = new Router(
     document.querySelector('main')
 );
 
-//extract token from URL
+
 const api = new Api();
 const ui = new UI();
-api.getToken();
+
 
 const albumPageLink = document.querySelector("[href='#album']");
 const artistPageLink = document.querySelector("[href='#artist']");
