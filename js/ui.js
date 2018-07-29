@@ -1,4 +1,7 @@
 class UI {
+    constructor() {
+    }
+
 
     //get necessary DOM elements, call API class' getAlbumObject function, use returned object to display album,
     //catch errors from Promise based on error name, display error message
@@ -14,17 +17,10 @@ class UI {
 
         const albumSearch = document.getElementById('albumSearch');
         const artistSearch = document.getElementById('artistSearch');
-        const message = document.querySelector('.form_error');
-
+        
         //validate input
         if (artistSearch.value==='' || albumSearch.value===''){
-            message.style.opacity = 1;
-            console.log(message.style.opacity);
-            message.innerText = 'Please fill in all the fields';
-            setTimeout(()=>{
-            message.style.opacity = 0;
-            },2000);
-            throw 'invalid input';
+            this.displayError('Please fill in all the fields');
         }
 
         api.getAlbumObject(artistSearch.value,albumSearch.value).then((alb)=>{
@@ -45,29 +41,18 @@ class UI {
                 scoreCounter++;
                 
             },15)
-            // albumDiv.innerHTML = `
-            // <img src="${alb.images[1].url}" alt="">
-            // <h2>${alb.artists[0].name}</h2>
-            // <h2>${alb.name}</h2>
-            // <h2>Score: ${alb.popularity}</h2>`;
             //clear inputs
             artistSearch.value='';
             albumSearch.value='';
         }).catch((e)=>{
             //clear current album, display appropriate error message, hide it after 2 sec
             if (e.name==='TypeError'){
-                message.style.opacity=1;
-                message.innerText='Please log in';
+                this.displayError('Please log in');
             }
             else{
-                message.style.opacity=1;
-                message.innerText='Album not found, please refine your search.';
+                this.displayError('Album not found, please refine your search.');
             }
-            // console.log('not found!');
             console.log(`error : ${e.name}`);
-            setTimeout(()=>{
-                message.style.opacity=0;
-            },2000);
         });
 
     }
@@ -78,7 +63,6 @@ class UI {
     displayArtist(e){
         e.preventDefault();
         const card = document.querySelector('.card');
-        const message = document.querySelector('.form_error');
         const artistDiv = document.getElementById('artistDiv');
         const artistName = document.querySelector('.card_stat--name');
         const artistScore = document.querySelector('.card_stat--score');
@@ -88,12 +72,7 @@ class UI {
 
         //validate input
         if (artistSearch.value===''){
-            message.style.opacity = 1;
-            message.innerText = 'Please fill in all the fields';
-            setTimeout(()=>{
-            message.style.opacity = 0;
-            },2000);
-            throw 'invalid input';
+            this.displayError('Please fill in all the fields');
         }
 
         api.getArtistObject(artistSearch.value).then((artistObject)=>{
@@ -127,16 +106,11 @@ class UI {
             console.log(`error name in ui: ${e}`);
             // console.log(`response status in ui: ${status}`);
             if (e.name ==='TypeError' && status===401){
-                message.style.opacity=1;
-                message.innerText='Please log in';
+                this.displayError('Please log in');
             }
             else if (e.name ==='TypeError' && (status===400 || status===200)){
-                message.style.opacity=1;                
-                message.innerText='Artist not found, please refine your search';
+                this.displayError('Artist not found, please refine your search');
             }
-            setTimeout(()=>{
-                message.style.opacity=0;
-            },2000);
         });
 
     }
@@ -155,18 +129,12 @@ class UI {
 
         const trackSearch = document.getElementById('trackSearch');
         const artistSearch = document.getElementById('artistSearch');
-        const message = document.querySelector('.form_error');
         let status;
         let track;
 
         //validate input
         if (artistSearch.value==='' || trackSearch.value===''){
-            message.style.opacity = 1;
-            message.innerText = 'Please fill in all the fields';
-            setTimeout(()=>{
-                message.style.opacity = 0;
-            },2000);
-            throw 'invalid input';
+            this.displayError('Please fill in all the fields');
         }
 
         api.getTrackObject(artistSearch.value,trackSearch.value).then((trackObject)=>{
@@ -174,11 +142,7 @@ class UI {
             status = trackObject.status;
             //if track not found, display error message
             if (trackObject.track.tracks.items.length===0){
-                message.style.opacity=1;
-                message.innerText='Track not found, please refine your search';
-                setTimeout(()=>{
-                     message.style.opacity=0;
-                },2000);
+                this.displayError('Track not found, please refine your search');
             }
 
             image.src = track.tracks.items[0].album.images[1].url;
@@ -208,13 +172,18 @@ class UI {
         trackSearch.value = '';
         }).catch((e)=>{
             if (e.name ==='TypeError' && status===401){
-                message.style.opacity=1;
-                message.innerText='Please log in';
+                this.displayError('Please log in');
             }
-            setTimeout(()=>{
-                message.style.opacity=0;
-            },2000);
         });
+    }
+
+    displayError(text) {
+        const message = document.querySelector('.form_error');
+        message.style.opacity = 1;
+        message.innerText = text;
+        setTimeout(()=>{
+        message.style.opacity = 0;
+        },2000);
     }
 
 

@@ -25,15 +25,15 @@ show(el) {
     const getTrack = document.getElementById('getTrack');
 
     if (getAlbum){
-        getAlbum.addEventListener('click',ui.displayAlbum);
+        getAlbum.addEventListener('click',(event) => ui.displayAlbum(event));
     }
 
     if (getArtist){
-        getArtist.addEventListener('click',ui.displayArtist);    
+        getArtist.addEventListener('click',(event) => ui.displayArtist(event));    
     }
 
     if (getTrack){
-        getTrack.addEventListener('click',ui.displayTrack);
+        getTrack.addEventListener('click', (event) => ui.displayTrack(event));
     }
 
 }
