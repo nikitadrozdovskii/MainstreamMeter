@@ -18,5 +18,23 @@ show(el) {
         component.show(div);
         el.appendChild(div);
     }
+
+    //add event listeners to call ui function upon page load
+    const getAlbum = document.getElementById('getAlbum');
+    const getArtist = document.getElementById('getArtist');
+    const getTrack = document.getElementById('getTrack');
+
+    if (getAlbum){
+        getAlbum.addEventListener('click',ui.displayAlbum);
+    }
+
+    if (getArtist){
+        getArtist.addEventListener('click',ui.displayArtist);    
+    }
+
+    if (getTrack){
+        getTrack.addEventListener('click',ui.displayTrack);
+    }
+
 }
 }

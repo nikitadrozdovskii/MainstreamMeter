@@ -37,7 +37,7 @@ class Api{
                     const expiresAtDate = new Date(expiresAt);
                     const expiresMS = expiresAtDate.getTime();
                     //if token expired
-                    if (expiresMS < Date.now){
+                    if (expiresMS < Date.now()){
                         console.log('token expired');
                         loginStatus.innerText = "Please log in";
                         return 1;
