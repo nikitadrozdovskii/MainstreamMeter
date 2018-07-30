@@ -100,7 +100,8 @@ h1 {
   height: 100vh;
   background-image: linear-gradient(rgba(252, 133, 174, 0.8), rgba(158, 87, 157, 0.8)), url("../../img/back-sm.jpg");
   background-size: cover;
-  overflow: hidden; }
+  overflow: hidden;
+  padding-bottom: 5rem; }
   @media (min-resolution: 192dpi) {
     .leftPanel {
       background-image: linear-gradient(rgba(252, 133, 174, 0.8), rgba(158, 87, 157, 0.8)), url("../../img/back-lg.jpg"); } }

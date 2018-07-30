@@ -1,5 +1,6 @@
 class UI {
     constructor() {
+        
     }
 
 
@@ -34,6 +35,8 @@ class UI {
             //clear inputs
             artistSearch.value='';
             albumSearch.value='';
+            this.scroll();
+
         }).catch((e)=>{
             //clear current album, display appropriate error message, hide it after 2 sec
             if (e.name==='TypeError'){
@@ -78,6 +81,8 @@ class UI {
 
             //clear input
             artistSearch.value='';
+            this.scroll();
+
         }).catch((e)=>{
             console.log(`error name in ui: ${e}`);
             // console.log(`response status in ui: ${status}`);
@@ -94,7 +99,6 @@ class UI {
     //get necessary DOM elements, call API class' getTrackObject function, use returned object to display track
     displayTrack(e){
         e.preventDefault();
-
         const trackDiv = document.getElementById('trackDiv');
         const artist = document.querySelector('.card_stat--artist');
         const trackName = document.querySelector('.card_stat--track');
@@ -127,6 +131,8 @@ class UI {
 
             //dynamic score display
             this.countScore(track.tracks.items[0].popularity);
+            this.scroll();
+
 
         //clear inputs
         artistSearch.value = '';
@@ -157,6 +163,20 @@ class UI {
                 scoreElement.innerText = scoreCounter;
                 scoreCounter++;
             },15)
+    }
+
+    scroll(){
+        const body = document.body;
+        const html = document.documentElement;
+
+        const height = Math.max( body.scrollHeight, body.offsetHeight, 
+                       html.clientHeight, html.scrollHeight, html.offsetHeight );
+                       console.log(height);
+        window.scroll({
+            top: height, 
+            behavior:'smooth'
+          });
+
     }
 
 }

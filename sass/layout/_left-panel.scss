@@ -5,6 +5,7 @@
     background-image: linear-gradient(rgba($light-pink,0.8), rgba($dark-pink, 0.8)) , url("../../img/back-sm.jpg");
     background-size: cover;
     overflow:hidden;
+    padding-bottom:5rem;
 
     @media (min-resolution: 192dpi) {
         background-image: linear-gradient(rgba($light-pink,0.8), rgba($dark-pink, 0.8)) , url("../../img/back-lg.jpg");
@@ -84,6 +85,7 @@
     &_info--secondary {
         overflow:hidden;
         // color: red;
+        // margin-bottom:5rem;
         
         @include respond (phone-port) {
             height: 45vh;
