@@ -1,22 +1,31 @@
 .leftPanel {
     float:left; 
-    background-image: linear-gradient(rgba($light-pink,0.8), rgba($dark-pink, 0.8)) , url("../../img/medium.gif");
     width: 50%;
     height:100vh;
+    background-image: linear-gradient(rgba($light-pink,0.8), rgba($dark-pink, 0.8)) , url("../../img/back-sm.jpg");
+    background-size: cover;
+    overflow:hidden;
+
+    @media (min-resolution: 192dpi) {
+        background-image: linear-gradient(rgba($light-pink,0.8), rgba($dark-pink, 0.8)) , url("../../img/back-lg.jpg");
+    }
+    
     @include respond (phone-land) {
         width: 100%;
+        height:auto;
+
     }
     // overflow: scroll;
 
     @media (orientation:landscape) and (max-height: 650px) and (max-width:60em){
-        height:100vw;
+        height:auto;
         width:100%;
     }
 
-    //smartphone with keyboard opened up
-    @media (max-height:650px) and (max-width:31em){
-        overflow:hidden;
-    }
+    // //smartphone with keyboard opened up
+    // @media (max-height:650px) and (max-width:31em){
+    //     overflow:hidden;
+    // }
 
     .inner-container::-webkit-scrollbar {
         display: none;

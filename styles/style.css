@@ -96,19 +96,22 @@ h1 {
 
 .leftPanel {
   float: left;
-  background-image: linear-gradient(rgba(252, 133, 174, 0.8), rgba(158, 87, 157, 0.8)), url("../../img/medium.gif");
   width: 50%;
-  height: 100vh; }
+  height: 100vh;
+  background-image: linear-gradient(rgba(252, 133, 174, 0.8), rgba(158, 87, 157, 0.8)), url("../../img/back-sm.jpg");
+  background-size: cover;
+  overflow: hidden; }
+  @media (min-resolution: 192dpi) {
+    .leftPanel {
+      background-image: linear-gradient(rgba(252, 133, 174, 0.8), rgba(158, 87, 157, 0.8)), url("../../img/back-lg.jpg"); } }
   @media (max-width: 37.5em) {
     .leftPanel {
-      width: 100%; } }
+      width: 100%;
+      height: auto; } }
   @media (orientation: landscape) and (max-height: 650px) and (max-width: 60em) {
     .leftPanel {
-      height: 100vw;
+      height: auto;
       width: 100%; } }
-  @media (max-height: 650px) and (max-width: 31em) {
-    .leftPanel {
-      overflow: hidden; } }
   .leftPanel .inner-container::-webkit-scrollbar {
     display: none; }
   .leftPanel_heading {
@@ -156,14 +159,13 @@ h1 {
   height: 100vh;
   width: 50%;
   background: #303a52;
-  overflow-Y: scroll;
   float: right; }
   @media (max-width: 37.5em) {
     .rightPanel {
       width: 100%; } }
   @media (orientation: landscape) and (max-height: 650px) and (max-width: 60em) {
     .rightPanel {
-      height: 100vw;
+      height: auto;
       width: 100%; } }
   @media (min-width: 1920px) {
     .rightPanel::-webkit-scrollbar {

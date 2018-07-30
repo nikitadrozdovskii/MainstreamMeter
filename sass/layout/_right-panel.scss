@@ -6,9 +6,9 @@
     @include respond (phone-land) {
         width: 100%;
     }
-    overflow-Y:scroll;
+    // overflow-Y:scroll;
     @media (orientation:landscape) and (max-height: 650px) and (max-width:60em){
-        height:100vw;
+        height:auto;
         width:100%;
     }
 
@@ -18,8 +18,9 @@
            }
     }
 
+    // overflow:hidden;
 
-    // overflow-y: scroll;
+
 
     float: right;
 }
