@@ -15,8 +15,11 @@ class UI {
         const albumName = document.querySelector('.card_stat--album');
         const image = document.querySelector('.card_img');
 
+
         const albumSearch = document.getElementById('albumSearch');
         const artistSearch = document.getElementById('artistSearch');
+        albumSearch.blur();
+        artistSearch.blur();
         
         //validate input
         if (artistSearch.value==='' || albumSearch.value===''){
@@ -60,7 +63,11 @@ class UI {
         const artistName = document.querySelector('.card_stat--name');
         const artistImage = document.querySelector('.card_img');
         const artistSearch = document.getElementById('artistSearch');
+        artistSearch.blur();
+
         let status;
+
+
 
         //validate input
         if (artistSearch.value===''){
@@ -105,9 +112,11 @@ class UI {
         const image = document.querySelector('.card_img');
         const card = document.querySelector('.card');
 
-
         const trackSearch = document.getElementById('trackSearch');
         const artistSearch = document.getElementById('artistSearch');
+        trackSearch.blur();
+        artistSearch.blur();
+
         let status;
         let track;
 
@@ -171,7 +180,6 @@ class UI {
 
         const height = Math.max( body.scrollHeight, body.offsetHeight, 
                        html.clientHeight, html.scrollHeight, html.offsetHeight );
-                       console.log(height);
         window.scroll({
             top: height, 
             behavior:'smooth'

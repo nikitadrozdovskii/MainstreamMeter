@@ -3,7 +3,7 @@
 
     width: 50%;
     background: $blue;
-    overflow: scroll;
+    overflow-Y: scroll;
     @include respond (phone-land) {
         width: 100%;
         overflow:visible;
