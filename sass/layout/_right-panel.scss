@@ -3,13 +3,17 @@
 
     width: 50%;
     background: $blue;
+    overflow: scroll;
     @include respond (phone-land) {
         width: 100%;
+        overflow:visible;
+        height:100%;
     }
     // overflow-Y:scroll;
     @media (orientation:landscape) and (max-height: 650px) and (max-width:60em){
-        height:auto;
+        height:100%;
         width:100%;
+        overflow:visible;
     }
 
     @media (min-width: 1920px){
