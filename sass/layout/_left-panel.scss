@@ -7,19 +7,21 @@
     overflow:hidden;
     padding-bottom:5rem;
 
-    @media (min-resolution: 192dpi) {
+    @media (min-resolution: 192dpi) and (min-width: 60em),
+    (min-width: 120em)
+     {
         background-image: linear-gradient(rgba($light-pink,0.8), rgba($dark-pink, 0.8)) , url("../../img/back-lg.jpg");
     }
     
     @include respond (phone-land) {
         width: 100%;
-        height:auto;
+        height:100%;
 
     }
     // overflow: scroll;
 
     @media (orientation:landscape) and (max-height: 650px) and (max-width:60em){
-        height:auto;
+        height:100%;
         width:100%;
     }
 
@@ -84,6 +86,7 @@
 
     &_info--secondary {
         overflow:hidden;
+        margin-bottom:25%;
         // color: red;
         // margin-bottom:5rem;
         

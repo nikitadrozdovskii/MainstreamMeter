@@ -34,7 +34,6 @@ class Api{
                 window.location.href = "#album";
 
                 setTimeout(() => {
-                    window.location.href = "#album";
                     loginStatus.style.opacity = 0;  
                 },2000);
                 window.localStorage.token = this.token;

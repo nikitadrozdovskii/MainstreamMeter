@@ -9,6 +9,10 @@ html {
     html {
       font-size: 50%; } }
 
+::selection {
+  background-color: rgba(252, 133, 174, 0.99);
+  color: white; }
+
 @keyframes moveHeaderTitleFromLeft {
   0% {
     transform: translateX(-70rem);
@@ -102,16 +106,16 @@ h1 {
   background-size: cover;
   overflow: hidden;
   padding-bottom: 5rem; }
-  @media (min-resolution: 192dpi) {
+  @media (min-resolution: 192dpi) and (min-width: 60em), (min-width: 120em) {
     .leftPanel {
       background-image: linear-gradient(rgba(252, 133, 174, 0.8), rgba(158, 87, 157, 0.8)), url("../../img/back-lg.jpg"); } }
   @media (max-width: 37.5em) {
     .leftPanel {
       width: 100%;
-      height: auto; } }
+      height: 100%; } }
   @media (orientation: landscape) and (max-height: 650px) and (max-width: 60em) {
     .leftPanel {
-      height: auto;
+      height: 100%;
       width: 100%; } }
   .leftPanel .inner-container::-webkit-scrollbar {
     display: none; }
@@ -151,7 +155,8 @@ h1 {
       .leftPanel_info {
         margin-right: 5%; } }
   .leftPanel_info--secondary {
-    overflow: hidden; }
+    overflow: hidden;
+    margin-bottom: 25%; }
     @media (max-width: 20em) {
       .leftPanel_info--secondary {
         height: 45vh; } }
@@ -172,7 +177,7 @@ h1 {
       height: 100%;
       width: 100%;
       overflow: visible; } }
-  @media (min-width: 1920px) {
+  @media (min-width: 120em) {
     .rightPanel::-webkit-scrollbar {
       display: none; } }
 

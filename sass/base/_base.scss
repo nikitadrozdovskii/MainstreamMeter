@@ -14,7 +14,9 @@ html {
     @include respond(tab-port) { // <900?
         font-size: 50%; // 8px
     }
+}
 
-
-
+::selection{
+    background-color:rgba($light-pink,0.99);
+    color:white;
 }
